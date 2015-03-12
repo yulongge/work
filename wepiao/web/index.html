@@ -1,0 +1,941 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">   
+<head>
+    <meta charset="utf-8"></meta>
+    <title>wepiao</title>
+    <link rel="stylesheet" type="text/css" href="css/style/style.css" />
+    <script src="js/jquery-1.11.1.min.js"></script>
+
+    <script type="text/javascript">
+    	function imgboxPlay(){
+    		//图片集合
+    		this.list = $(".imgbox").children(":first").children();
+    		this.indexs = [];
+    		this.length = this.list.length;
+    		//图片显示时间
+    		this.timer = 5000;
+    		var index = 0 ,self = this,pre = 0,handId,isPlay = false,isBtnClick = false;
+
+    		//图片轮播
+    		this.Play = function(){
+    			isPlay = true;
+    			index ++ ;
+    			if(index == self.length){
+    				index = 0;
+    			}
+    			//alert(index+"===="+pre+"====="+index);
+    			self.list.eq(pre).fadeOut(500,"linear",function(){
+    				var info = self.list.eq(index).fadeIn(800,"linear",function(){
+    					isPlay = false;
+    					if(isBtnClick){
+    						handId = setInterval(self.Play,self.timer);
+    						isBtnClick = false;
+    					}
+
+    				});
+
+    				pre = index;
+
+    			});
+    		}
+    		this.rPlay = function(){
+    			isPlay = true;
+    			index -- ;
+    			if(index == -1){
+    				index = 3;
+    			}
+    			self.list.eq(pre).fadeOut(500,"linear",function(){
+    				var info = self.list.eq(index).fadeIn(800,"linear",function(){
+    					isPlay = false;
+    					if(isBtnClick){
+    						handId = setInterval(self.Play,self.timer);
+    						isBtnClick = false;
+    					}
+    				});
+    				pre = index;
+
+    			});
+    		}
+    		//左右点击切换
+    		this.BtnClick = function(){
+    			var btns = $(".img_btn");
+    			btns.each(function(i,v){
+    				$(v).click(function(){
+    					if(isPlay){return;}
+		    			isBtnClick = true;
+		    			clearInterval(handId);
+		    			if($(v).hasClass("img_left_btn")){
+		    				self.rPlay();
+		    			}
+		    			if($(v).hasClass("img_right_btn")){
+		    				self.Play();
+		    			}
+    				});
+    			});
+    			
+    		}
+
+    		this.Start = function(){
+    			handId = setInterval(self.Play,self.timer);
+    			this.BtnClick();
+    		}
+
+
+    	}
+    	$(document).ready(function(){
+            //启动图片滚动
+    		//(new imgboxPlay()).Start();
+
+            //获取屏幕分辨率
+            var screenWidth = window.screen.width;
+            if(screenWidth<1200){
+                $(".wepiaoContainer").addClass("minWepiaoContainer");
+            }else{
+                $(".wepiaoContainer").removeClass("minWepiaoContainer");
+            }
+
+            //导航菜单
+            $(".wepiaoContainer .header .menu .menuCon a").unbind("click").click(function(){
+                $(this).parent().siblings().find("a").removeClass("active");
+                $(this).addClass("active");
+            });
+
+            //列表切换
+            $(".wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title .tabplay").unbind("click").click(function(){
+                $(this).siblings().removeClass("active");
+                $(this).addClass("active");
+            });
+
+            //显示区域选择
+            $(".wepiaoContainer .header .menu .region .showRegion").unbind("click").click(function(){
+                $(".regionChooseWindow").show();
+            });
+
+            $(".regionChooseWindow .closeWin").unbind("click").click(function(){
+                $(".regionChooseWindow").hide();
+            });
+
+            $(".menu .region .regionChooseWindow .banner .tabBanner").unbind("click").click(function(){
+                $(this).siblings().removeClass("active");
+                $(this).addClass("active");
+            });
+
+            //影片鼠标经过事件
+            $(".wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item").mouseenter(function(){
+                var buyRightNow ="<div class=\"buyRightNow\"><a href=\"#\"><\/a><\/div>";
+                $(this).append(buyRightNow);
+            }).mouseleave(function(){
+                $(this).find(".buyRightNow").remove();
+            });
+
+
+            $(".wepiao_nav .regionCon .regionChoose .inputCon").unbind("click").click(function(){
+                $(".wepiao_nav .regionCon .regionChoose .inputCon").removeClass("inputConWin");
+                $(".movieChoseWin").hide()
+                $(this).addClass("inputConWin").find(".movieChoseWin").show();
+            });
+
+            $(".wepiao_nav .regionCon .regionChoose .inputCon .close").unbind("click").click(function(e){
+                e.stopPropagation();
+                $(this).parents(".inputCon").removeClass("inputConWin")
+                $(this).parents(".movieChoseWin").hide()
+            });
+
+            $(".dateWin .title .dateItem").unbind("click").click(function(){
+                $(this).siblings().removeClass("active");
+                $(this).addClass("active")
+            });
+
+            $(".dateWin .main .item").mouseenter(function(){
+                $(this).addClass("active");
+            }).mouseleave(function(){
+                $(this).removeClass("active");
+            });
+
+            $(".cinemaWin .main .regionArea a").unbind("click").click(function(){
+                $(this).siblings().removeClass("active");
+                $(this).addClass("active")
+            });
+    	});
+    </script>
+</head>
+<body>
+	<div class="wepiaoContainer minWepiaoContainer">
+		<div class="header">
+			<div class="menu">
+                <div class="logo"></div>
+                <div class="region">
+                    <div class="showRegion">
+                        <span>北京</span>
+                        <span class="region_point"></span>
+                    </div>
+                    <div class="regionChooseWindow">
+                            <div class="banner">
+                                <div class="instruction">热门城市</div>
+                                <div class="tabBanner active">ABCD</div>
+                                <div class="tabBanner">EFGH</div>
+                                <div class="tabBanner">IJKL</div>
+                                <div class="tabBanner">MNOP</div>
+                                <div class="tabBanner">QRST</div>
+                                <div class="tabBanner">UVWX</div>
+                                <div class="tabBanner">XY</div>
+                                <div class="regionSearch">
+                                    <input type="text"/>
+                                </div>
+                                <div class="closeWin">
+
+                                </div>
+                            </div>
+                            <div class="main">
+                                <div class="regionItem">
+                                    <div class="region_firstKey">A</div>
+                                    <div class="region_cities">
+                                        <a href="javacript:void(0);">安顺</a>
+                                        <a href="javacript:void(0);">安宁</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                    </div>
+                                </div>
+                                <div class="regionItem">
+                                    <div class="region_firstKey">B</div>
+                                    <div class="region_cities">
+                                        <a href="javacript:void(0);">安顺</a>
+                                        <a href="javacript:void(0);">安宁</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javacript:void(0);">安顺</a>
+                                        <a href="javacript:void(0);">安宁</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javacript:void(0);">安顺</a>
+                                        <a href="javacript:void(0);">安宁</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javacript:void(0);">安顺</a>
+                                        <a href="javacript:void(0);">安宁</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                    </div>
+                                </div>
+
+                                <div class="regionItem">
+                                    <div class="region_firstKey">C</div>
+                                    <div class="region_cities">
+                                        <a href="javacript:void(0);">安顺</a>
+                                        <a href="javacript:void(0);">安宁</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javacript:void(0);">安顺</a>
+                                        <a href="javacript:void(0);">安宁</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javacript:void(0);">安顺</a>
+                                        <a href="javacript:void(0);">安宁</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                    </div>
+                                </div>
+
+                                <div class="regionItem">
+                                    <div class="region_firstKey">D</div>
+                                    <div class="region_cities">
+                                        <a href="javacript:void(0);">安顺</a>
+                                        <a href="javacript:void(0);">安宁</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javacript:void(0);">安顺</a>
+                                        <a href="javacript:void(0);">安宁</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javacript:void(0);">安顺</a>
+                                        <a href="javacript:void(0);">安宁</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javacript:void(0);">安顺</a>
+                                        <a href="javacript:void(0);">安宁</a>
+                                        <a href="javacript:void(0);">安阳</a>
+                                        <a href="javacript:void(0);">安庆</a>
+                                        <a href="javacript:void(0);">鞍山</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="menuCon">
+                    <div><a href="#" class="active"><span>首页</span></a></div>
+                    <div><a href="#"><span>影片</span></a></div>
+                    <div><a href="#"><span>影院</span></a></div>
+                    <div><a href="#"><span>我的</span></a></div>
+                </div>
+
+                <div class="seachCon">
+                    <input type="text"/>
+                </div>
+                <div class="logoOrSign">
+                    <!-- <a class="logoOrSign_icon"></a> -->
+                    <img src="css/images/index/geren.png" class="logoOrSign_icon" />
+                    <a class="logoOrSign_login">登录</a>
+                    <a class="logoOrSign_line">|</a>
+                    <a class="logoOrSign_sign">注册</a>
+                </div>
+
+            </div>
+		</div>
+		<div class="wepiao_nav">
+			<div class="imgbox">
+				<ul>
+					<li style="display:block;">
+						<a href="#">
+							<!-- <img src="css/images/index/nav_bg.jpg"/> -->
+                            <div style="background:url(css/images/index/nav_bg.jpg) center no-repeat;"></div>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<!-- <img src="css/images/sign/bg.png"/> -->
+                            <div style="background:url(css/images/sign/bg.png) center"></div>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<!-- <img src="css/images/sign/sign_bg.gif"/> -->
+                            <div style="background:url(css/images/sign/sign_bg.gif) center"></div>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<!-- <img src="css/images/sign/desktop_bg_24.jpg"/> -->
+                            <div style="background:url(css/images/sign/desktop_bg_24.jpg) center"></div>
+						</a>
+					</li>
+				</ul>
+				<!-- <div class="img_btn img_left_btn">
+
+				</div>
+				<div class="img_btn img_right_btn">
+					
+				</div> -->
+
+			</div>
+
+
+            
+            <div class="regionCon">
+                <div class="imageboxBtn">
+                    <div class="img_btn img_left_btn">
+
+                    </div>
+                    <div class="img_btn img_right_btn">
+                        
+                    </div> 
+                </div>
+
+                <div class="gps">
+                    <img class="icon" src="css/images/index/gpsIcon.png" />
+                    <span class="regionMsg">已为您定位 青年路  朝阳区<a href="#">[修改]</a></span>
+                </div>
+                <div class="regionChoose">
+                    <div class="inputCon">
+                        <input type="text" value="有一个地方只有我们知道"/>
+                        <div class="movieChoseWin">
+                            <div class="jiantou"></div>
+                            <div class="title">
+                                <span>正在上映影片：12部</span>
+                                <span class="close"></span>
+                            </div>
+                            <div class="main">
+                                <div class="movieItem">
+                                    <div class="photo"></div>
+                                    <div class="instruction">
+                                        <span class="name">重返二十岁</span>
+                                        <span class="favorite"><font>80%</font>喜欢</span>
+                                        <span class="hostTopic">鹿晗首演"萌孙"</span>
+                                    </div>
+                                </div> 
+                                <div class="movieItem">
+                                    <div class="photo"></div>
+                                    <div class="instruction">
+                                        <span class="name">重返二十岁</span>
+                                        <span class="favorite"><font>80%</font>喜欢</span>
+                                        <span class="hostTopic">鹿晗首演"萌孙"</span>
+                                    </div>
+                                </div> 
+
+                                <div class="movieItem">
+                                    <div class="photo"></div>
+                                    <div class="instruction">
+                                        <span class="name">重返二十岁</span>
+                                        <span class="favorite"><font>80%</font>喜欢</span>
+                                        <span class="hostTopic">鹿晗首演"萌孙"</span>
+                                    </div>
+                                </div> 
+                                 <div class="movieItem">
+                                    <div class="photo"></div>
+                                    <div class="instruction">
+                                        <span class="name">重返二十岁</span>
+                                        <span class="favorite"><font>80%</font>喜欢</span>
+                                        <span class="hostTopic">鹿晗首演"萌孙"</span>
+                                    </div>
+                                </div> 
+                                 <div class="movieItem">
+                                    <div class="photo"></div>
+                                    <div class="instruction">
+                                        <span class="name">重返二十岁</span>
+                                        <span class="favorite"><font>80%</font>喜欢</span>
+                                        <span class="hostTopic">鹿晗首演"萌孙"</span>
+                                    </div>
+                                </div> 
+                                 <div class="movieItem">
+                                    <div class="photo"></div>
+                                    <div class="instruction">
+                                        <span class="name">重返二十岁</span>
+                                        <span class="favorite"><font>80%</font>喜欢</span>
+                                        <span class="hostTopic">鹿晗首演"萌孙"</span>
+                                    </div>
+                                </div> 
+                                 <div class="movieItem">
+                                    <div class="photo"></div>
+                                    <div class="instruction">
+                                        <span class="name">重返二十岁</span>
+                                        <span class="favorite"><font>80%</font>喜欢</span>
+                                        <span class="hostTopic">鹿晗首演"萌孙"</span>
+                                    </div>
+                                </div> 
+                                 <div class="movieItem">
+                                    <div class="photo"></div>
+                                    <div class="instruction">
+                                        <span class="name">重返二十岁</span>
+                                        <span class="favorite"><font>80%</font>喜欢</span>
+                                        <span class="hostTopic">鹿晗首演"萌孙"</span>
+                                    </div>
+                                </div> 
+                                 <div class="movieItem">
+                                    <div class="photo"></div>
+                                    <div class="instruction">
+                                        <span class="name">重返二十岁</span>
+                                        <span class="favorite"><font>80%</font>喜欢</span>
+                                        <span class="hostTopic">鹿晗首演"萌孙"</span>
+                                    </div>
+                                </div> 
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inputCon">
+                        <input type="text" value="北京金逸国际影城大悦城店"/>
+                        <div class="movieChoseWin cinemaWin">
+                            <div class="jiantou"></div>
+                            <div class="title">
+                                <span>影院搜索</span>
+                                <span class="close"></span>
+                            </div>
+                            <div class="main">
+                               <div class="regionArea">
+                                    <a href="javascript:void(0);" class="allArea active">全部</a>
+                                    <a href="javascript:void(0);">东城区</a>
+                                    <a href="javascript:void(0);">西城区</a>
+                                    <a href="javascript:void(0);">海淀区</a>
+                                    <a href="javascript:void(0);">朝阳区</a>
+                                    <a href="javascript:void(0);">通州区</a>
+                                    <a href="javascript:void(0);">崇文区</a>
+                                    <a href="javascript:void(0);">石景山区</a>
+                                    <a href="javascript:void(0);">延庆县</a>
+                                    <a href="javascript:void(0);">顺义区</a>
+                                    <a href="javascript:void(0);">宣武区</a>
+                                    <a href="javascript:void(0);">丰台区</a>
+                                    <a href="javascript:void(0);">大兴区</a>
+                                    <a href="javascript:void(0);">房山区</a>
+                                    <a href="javascript:void(0);">昌平区</a>
+                                    <a href="javascript:void(0);">怀柔区</a>
+                               </div>
+                               <div class="cinemaArea">
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                    
+
+                               </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inputCon">
+                        <input type="text" value="今天 3月23日(周五)"/>
+                        <div class="movieChoseWin dateWin">
+                            <div class="jiantou"></div>
+                            <div class="title">
+                                <div class="dateItem active">
+                                    <a href="javascript:void(0);">今天 <font> 3月23日 (周五)</font></a>
+                                </div>
+                                <div class="dateItem">
+                                    <a href="javascript:void(0);">明天 <font> 3月24日 (周六)</font></a>
+                                </div>
+                                <div class="dateItem">
+                                    <a href="javascript:void(0);">后天 <font> 3月25日 (周日)</font></a>
+                                </div>
+                                <div>
+                                    <span class="close"></span>
+                                </div>
+      
+                            </div>
+                            <div class="main">
+                               <div class="item active">
+                                    <div><a href="javascript:void(0);" class="time">15:45</a></div>
+                                    <div><a href="javascript:void(0);" class="type">国语3D</a></div>
+                                    <div><a href="javascript:void(0);" class="address">6号厅</a></div>
+                                    <div class="priceDiv">
+                                        <span href="javascript:void(0);" class="price">
+                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
+                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
+                                            <a href="javascript:void(0);" class="allPrice"></a>
+                                        </span>
+                                    </div>
+                                    <div class="buyBtnConDiv">
+                                        <a href="javascript:void(0);" class="buyBtnCon"></a>
+                                    </div>     
+                               </div>
+
+                                <div class="item">
+                                    <div><a href="javascript:void(0);" class="time">15:45</a></div>
+                                    <div><a href="javascript:void(0);" class="type">国语3D</a></div>
+                                    <div><a href="javascript:void(0);" class="address">6号厅</a></div>
+                                    <div class="priceDiv">
+                                        <span href="javascript:void(0);" class="price">
+                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
+                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
+                                            <a href="javascript:void(0);" class="allPrice"></a>
+                                        </span>
+                                    </div>
+                                    <div class="buyBtnConDiv">
+                                        <a href="javascript:void(0);" class="buyBtnCon"></a>
+                                    </div>     
+                               </div>
+
+                                <div class="item">
+                                    <div><a href="javascript:void(0);" class="time">15:45</a></div>
+                                    <div><a href="javascript:void(0);" class="type">国语3D</a></div>
+                                    <div><a href="javascript:void(0);" class="address">6号厅</a></div>
+                                    <div class="priceDiv">
+                                        <span href="javascript:void(0);" class="price">
+                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
+                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
+                                            <a href="javascript:void(0);" class="allPrice"></a>
+                                        </span>
+                                    </div>
+                                    <div class="buyBtnConDiv">
+                                        <a href="javascript:void(0);" class="buyBtnCon"></a>
+                                    </div>     
+                               </div>
+
+                                <div class="item">
+                                    <div><a href="javascript:void(0);" class="time">15:45</a></div>
+                                    <div><a href="javascript:void(0);" class="type">国语3D</a></div>
+                                    <div><a href="javascript:void(0);" class="address">6号厅</a></div>
+                                    <div class="priceDiv">
+                                        <span href="javascript:void(0);" class="price">
+                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
+                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
+                                            <a href="javascript:void(0);" class="allPrice"></a>
+                                        </span>
+                                    </div>
+                                    <div class="buyBtnConDiv">
+                                        <a href="javascript:void(0);" class="buyBtnCon"></a>
+                                    </div>     
+                               </div>
+
+                                <div class="item">
+                                    <div><a href="javascript:void(0);" class="time">15:45</a></div>
+                                    <div><a href="javascript:void(0);" class="type">国语3D</a></div>
+                                    <div><a href="javascript:void(0);" class="address">6号厅</a></div>
+                                    <div class="priceDiv">
+                                        <span href="javascript:void(0);" class="price">
+                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
+                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
+                                            <a href="javascript:void(0);" class="allPrice"></a>
+                                        </span>
+                                    </div>
+                                    <div class="buyBtnConDiv">
+                                        <a href="javascript:void(0);" class="buyBtnCon"></a>
+                                    </div>     
+                               </div>
+
+
+                               <div class="item">
+                                    <div><a href="javascript:void(0);" class="time">15:45</a></div>
+                                    <div><a href="javascript:void(0);" class="type">国语3D</a></div>
+                                    <div><a href="javascript:void(0);" class="address">6号厅</a></div>
+                                    <div class="priceDiv">
+                                        <span href="javascript:void(0);" class="price">
+                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
+                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
+                                            <a href="javascript:void(0);" class="allPrice"></a>
+                                        </span>
+                                    </div>
+                                    <div class="buyBtnConDiv">
+                                        <a href="javascript:void(0);" class="buyBtnCon"></a>
+                                    </div>     
+                               </div>
+
+                               <div class="item">
+                                    <div><a href="javascript:void(0);" class="time">15:45</a></div>
+                                    <div><a href="javascript:void(0);" class="type">国语3D</a></div>
+                                    <div><a href="javascript:void(0);" class="address">6号厅</a></div>
+                                    <div class="priceDiv">
+                                        <span href="javascript:void(0);" class="price">
+                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
+                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
+                                            <a href="javascript:void(0);" class="allPrice"></a>
+                                        </span>
+                                    </div>
+                                    <div class="buyBtnConDiv">
+                                        <a href="javascript:void(0);" class="buyBtnCon"></a>
+                                    </div>     
+                               </div>
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="buyBtn">
+
+                    </div>
+                </div>
+            </div>
+		</div>
+        <div class="wepiao_main">
+            <div class="wepiao_main_moivelist">
+                <div class="movelistCon">
+                    <div class="movelist_title">
+                        <span class="tabplay nowPlay active">正在热映</span>
+                        <span class="titleLine">|</span>
+                        <span class="tabplay futurePlay">即将上映</span>
+                        <span class="allMoive">所有影片></span>
+                    </div>
+                    <div class="movelist_items">
+                        <a href="#">
+                            <div class="movelist_item">
+                                <div class="photo"></div>
+                               
+                                <div class="isntruction">
+                                    <span class="name">重返二十岁</span>
+                                    <span class="favorite"><font>80%</font>喜欢</span>
+                                    <span class="hostTopic">鹿晗首演"萌孙"</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="movelist_item">
+                            <div class="photo"></div>
+                            <div class="isntruction">
+                                <span class="name">重返二十岁</span>
+                                <span class="favorite"><font>80%</font>喜欢</span>
+                                <span class="hostTopic">鹿晗首演"萌孙"</span>
+                            </div>
+                        </div>
+                        <div class="movelist_item">
+                            <div class="photo"></div>
+                            <div class="isntruction">
+                                <span class="name">重返二十岁</span>
+                                <span class="favorite"><font>80%</font>喜欢</span>
+                                <span class="hostTopic">鹿晗首演"萌孙"</span>
+                            </div>
+                        </div>
+                        <div class="movelist_item">
+                            <div class="photo"></div>
+                            <div class="isntruction">
+                                <span class="name">重返二十岁</span>
+                                <span class="favorite"><font>80%</font>喜欢</span>
+                                <span class="hostTopic">鹿晗首演"萌孙"</span>
+                            </div>
+                        </div>
+                        <div class="movelist_item">
+                            <div class="photo"></div>
+                            <div class="isntruction">
+                                <span class="name">重返二十岁</span>
+                                <span class="favorite"><font>80%</font>喜欢</span>
+                                <span class="hostTopic">鹿晗首演"萌孙"</span>
+                            </div>
+                        </div>
+                        <div class="movelist_item">
+                            <div class="photo"></div>
+                            <div class="isntruction">
+                                <span class="name">重返二十岁</span>
+                                <span class="favorite"><font>80%</font>喜欢</span>
+                                <span class="hostTopic">鹿晗首演"萌孙"</span>
+                            </div>
+                        </div>
+                        <div class="movelist_item">
+                            <div class="photo"></div>
+                            <div class="isntruction">
+                                <span class="name">重返二十岁</span>
+                                <span class="favorite"><font>80%</font>喜欢</span>
+                                <span class="hostTopic">鹿晗首演"萌孙"</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="movelistCon">
+                    <div class="movelist_title">
+                        <span class="playPiao">演出票</span>
+                        <span class="allMoive">所有影片></span>
+                    </div>
+                    <div class="movelist_items">
+                        <div class="movelist_item">
+                            <div class="photo"></div>
+                            <div class="isntruction">
+                                <span class="name">重返二十岁</span>
+                                <span class="favorite"><font>80%</font>喜欢</span>
+                                <span class="hostTopic">鹿晗首演"萌孙"</span>
+                            </div>
+                        </div>
+                        <div class="movelist_item">
+                            <div class="photo"></div>
+                            <div class="isntruction">
+                                <span class="name">重返二十岁</span>
+                                <span class="favorite"><font>80%</font>喜欢</span>
+                                <span class="hostTopic">鹿晗首演"萌孙"</span>
+                            </div>
+                        </div>
+                        <div class="movelist_item">
+                            <div class="photo"></div>
+                            <div class="isntruction">
+                                <span class="name">重返二十岁</span>
+                                <span class="favorite"><font>80%</font>喜欢</span>
+                                <span class="hostTopic">鹿晗首演"萌孙"</span>
+                            </div>
+                        </div>
+                        <div class="movelist_item">
+                            <div class="photo"></div>
+                            <div class="isntruction">
+                                <span class="name">重返二十岁</span>
+                                <span class="favorite"><font>80%</font>喜欢</span>
+                                <span class="hostTopic">鹿晗首演"萌孙"</span>
+                            </div>
+                        </div>
+                         <div class="movelist_item">
+                            <div class="photo"></div>
+                            <div class="isntruction">
+                                <span class="name">重返二十岁</span>
+                                <span class="favorite"><font>80%</font>喜欢</span>
+                                <span class="hostTopic">鹿晗首演"萌孙"</span>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="wepiao_main_moivesort">
+                <div class="moivesortCon moive_hostactivity">
+                    <div class="title">
+                        <span class="icon"></span>
+                        <span class="name">热门活动</span>
+                    </div>
+                    <div class="list">
+                        <a href="#">
+                            <div class="item">
+                                <span class="name">每周约会十九期</span>
+                                <span class="date">时间：1月4日 - 2月4日</span>
+                            </div>
+                        </a>
+                        <div class="item">
+                            <span class="name">矮人传奇最终决战</span>
+                            <span class="date">时间：1月4日 - 2月4日</span>
+                        </div>
+                        <div class="item">
+                            <span class="name">每周约会十九期</span>
+                            <span class="date">时间：1月4日 - 2月4日</span>
+                        </div>
+                        <div class="item">
+                            <span class="name">矮人传奇最终决战</span>
+                            <span class="date">时间：1月4日 - 2月4日</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="moivesortCon movieSortlist moive_hostmovie">
+                    <div class="title">
+                        <span class="icon"></span>
+                        <span class="name">热门影片</span>
+                    </div>
+                    <div class="list">
+                        <div class="item">
+                            <span class="number inTop">1</span>
+                            <span class="name">重返二十岁</span>
+                        </div>
+                        <div class="item">
+                            <span class="number inTop">2</span>
+                            <span class="name">往返地中海</span>
+                        </div>
+                        <div class="item">
+                            <span class="number inTop">3</span>
+                            <span class="name">安妮纽约奇缘</span>
+                        </div>
+                        <div class="item">
+                            <span class="number">4</span>
+                            <span class="name">重返二十岁</span>
+                        </div>
+                        <div class="item">
+                            <span class="number">5</span>
+                            <span class="name">往返地中海</span>
+                        </div>
+                        <div class="item">
+                            <span class="number">6</span>
+                            <span class="name">安妮纽约奇缘</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="moivesortCon movieSortlist moive_hostcinema">
+                    <div class="title">
+                        <span class="icon"></span>
+                        <span class="name">热门影院</span>
+                    </div>
+                    <div class="list">
+                        <div class="item">
+                            <span class="number inTop">1</span>
+                            <span class="name">北京大悦城</span>
+                        </div>
+                        <div class="item">
+                            <span class="number inTop">2</span>
+                            <span class="name">百老汇新世纪影城</span>
+                        </div>
+                        <div class="item">
+                            <span class="number inTop">3</span>
+                            <span class="name">百老汇新东安影院</span>
+                        </div>
+                        <div class="item">
+                            <span class="number">4</span>
+                            <span class="name">星会聚星星影城</span>
+                        </div>
+                        <div class="item">
+                            <span class="number">5</span>
+                            <span class="name">金逸北京中关村</span>
+                        </div>
+                        <div class="item">
+                            <span class="number">6</span>
+                            <span class="name">博纳国际影城(朝阳店)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="moivesortCon movieSortlist movie_newmovie">
+                    <div class="title">
+                        <span class="icon"></span>
+                        <span class="name">最新影片</span>
+                    </div>
+                    <div class="list">
+                        <div class="item">
+                            <span class="number inTop">1</span>
+                            <span class="name">重返二十岁</span>
+                        </div>
+                        <div class="item">
+                            <span class="number inTop">2</span>
+                            <span class="name">往返地中海</span>
+                        </div>
+                        <div class="item">
+                            <span class="number inTop">3</span>
+                            <span class="name">安妮纽约奇缘</span>
+                        </div>
+                        <div class="item">
+                            <span class="number">4</span>
+                            <span class="name">重返二十岁</span>
+                        </div>
+                        <div class="item">
+                            <span class="number">5</span>
+                            <span class="name">往返地中海</span>
+                        </div>
+                        <div class="item">
+                            <span class="number">6</span>
+                            <span class="name">安妮纽约奇缘</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footerCon">
+                <div class="logo footerItem">
+                    <div class="icon"></div>
+                    <div class="instru">
+                        <span class="instru1">微信电影票官网</span>
+                        <span class="instru2">在线占好座，覆盖影院全国第一</span>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="phoneNumber footerItem">
+                    <div class="icon"></div>
+                    <div class="instru">
+                        <span class="instru1">微信电影票官网</span>
+                        <span class="instru2">在线占好座，覆盖影院全国第一</span>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="weixin footerItem">
+                    <div class="icon"></div>
+                    <div class="instru">
+                        <span class="instru1">微信电影票官网</span>
+                        <span class="instru2">在线占好座，覆盖影院全国第一</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="companyIns">
+                <span>@2014北京微影时代科技有限公司版权所有　　京ICP备14034406号-2</span>
+                <span>通讯地址： 北京市朝阳区西大望路甲12号通惠国际传媒广场2号楼 4层</span>
+            </div>
+        </div>
+	</div>
+
+    <div class="weixinAder">
+        <div class="title">扫一扫 新人有礼</div>
+        <div class="icon"></div>
+        <div class="instruction">
+            <p>关注微信电影票</p>
+            <p>和你一起爱上电影</p>
+        </div>
+    </div>
+</body>
+</html>

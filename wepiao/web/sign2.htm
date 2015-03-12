@@ -1,0 +1,32 @@
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>钱运来|qianyunlai.com制作</title> 
+</head> 
+<style type="text/css"> 
+</style> 
+<body> 
+<input name="" type="text" value="密码" class="inputText_1" id="tx" style="width:100px;" /> 
+<input name="" type="password" style="display:none;width:100px;" id="pwd" /> 
+<script type="text/javascript"> 
+var tx = document.getElementById("tx"), pwd = document.getElementById("pwd"); 
+tx.onfocus = function () { 
+if (this.value != "密码") 
+return; 
+this.style.display = "none"; 
+pwd.style.display = ""; 
+pwd.value = ""; 
+pwd.focus(); 
+} 
+pwd.onblur = function () { 
+if (this.value != "") 
+return; 
+this.style.display = "none"; 
+tx.style.display = ""; 
+tx.value = "密码"; 
+} 
+</script> 
+</body> 
+</html> 
