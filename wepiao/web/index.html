@@ -7,158 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/style/style.css" />
     <script src="js/jquery-1.11.1.min.js"></script>
 
-    <script type="text/javascript">
-    	function imgboxPlay(){
-    		//图片集合
-    		this.list = $(".imgbox").children(":first").children();
-    		this.indexs = [];
-    		this.length = this.list.length;
-    		//图片显示时间
-    		this.timer = 5000;
-    		var index = 0 ,self = this,pre = 0,handId,isPlay = false,isBtnClick = false;
-
-    		//图片轮播
-    		this.Play = function(){
-    			isPlay = true;
-    			index ++ ;
-    			if(index == self.length){
-    				index = 0;
-    			}
-    			//alert(index+"===="+pre+"====="+index);
-    			self.list.eq(pre).fadeOut(500,"linear",function(){
-    				var info = self.list.eq(index).fadeIn(800,"linear",function(){
-    					isPlay = false;
-    					if(isBtnClick){
-    						handId = setInterval(self.Play,self.timer);
-    						isBtnClick = false;
-    					}
-
-    				});
-
-    				pre = index;
-
-    			});
-    		}
-    		this.rPlay = function(){
-    			isPlay = true;
-    			index -- ;
-    			if(index == -1){
-    				index = 3;
-    			}
-    			self.list.eq(pre).fadeOut(500,"linear",function(){
-    				var info = self.list.eq(index).fadeIn(800,"linear",function(){
-    					isPlay = false;
-    					if(isBtnClick){
-    						handId = setInterval(self.Play,self.timer);
-    						isBtnClick = false;
-    					}
-    				});
-    				pre = index;
-
-    			});
-    		}
-    		//左右点击切换
-    		this.BtnClick = function(){
-    			var btns = $(".img_btn");
-    			btns.each(function(i,v){
-    				$(v).click(function(){
-    					if(isPlay){return;}
-		    			isBtnClick = true;
-		    			clearInterval(handId);
-		    			if($(v).hasClass("img_left_btn")){
-		    				self.rPlay();
-		    			}
-		    			if($(v).hasClass("img_right_btn")){
-		    				self.Play();
-		    			}
-    				});
-    			});
-    			
-    		}
-
-    		this.Start = function(){
-    			handId = setInterval(self.Play,self.timer);
-    			this.BtnClick();
-    		}
-
-
-    	}
-    	$(document).ready(function(){
-            //启动图片滚动
-    		//(new imgboxPlay()).Start();
-
-            //获取屏幕分辨率
-            var screenWidth = window.screen.width;
-            if(screenWidth<1200){
-                $(".wepiaoContainer").addClass("minWepiaoContainer");
-            }else{
-                $(".wepiaoContainer").removeClass("minWepiaoContainer");
-            }
-
-            //导航菜单
-            $(".wepiaoContainer .header .menu .menuCon a").unbind("click").click(function(){
-                $(this).parent().siblings().find("a").removeClass("active");
-                $(this).addClass("active");
-            });
-
-            //列表切换
-            $(".wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title .tabplay").unbind("click").click(function(){
-                $(this).siblings().removeClass("active");
-                $(this).addClass("active");
-            });
-
-            //显示区域选择
-            $(".wepiaoContainer .header .menu .region .showRegion").unbind("click").click(function(){
-                $(".regionChooseWindow").show();
-            });
-
-            $(".regionChooseWindow .closeWin").unbind("click").click(function(){
-                $(".regionChooseWindow").hide();
-            });
-
-            $(".menu .region .regionChooseWindow .banner .tabBanner").unbind("click").click(function(){
-                $(this).siblings().removeClass("active");
-                $(this).addClass("active");
-            });
-
-            //影片鼠标经过事件
-            $(".wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item").mouseenter(function(){
-                var buyRightNow ="<div class=\"buyRightNow\"><a href=\"#\"><\/a><\/div>";
-                $(this).append(buyRightNow);
-            }).mouseleave(function(){
-                $(this).find(".buyRightNow").remove();
-            });
-
-
-            $(".wepiao_nav .regionCon .regionChoose .inputCon").unbind("click").click(function(){
-                $(".wepiao_nav .regionCon .regionChoose .inputCon").removeClass("inputConWin");
-                $(".movieChoseWin").hide()
-                $(this).addClass("inputConWin").find(".movieChoseWin").show();
-            });
-
-            $(".wepiao_nav .regionCon .regionChoose .inputCon .close").unbind("click").click(function(e){
-                e.stopPropagation();
-                $(this).parents(".inputCon").removeClass("inputConWin")
-                $(this).parents(".movieChoseWin").hide()
-            });
-
-            $(".dateWin .title .dateItem").unbind("click").click(function(){
-                $(this).siblings().removeClass("active");
-                $(this).addClass("active")
-            });
-
-            $(".dateWin .main .item").mouseenter(function(){
-                $(this).addClass("active");
-            }).mouseleave(function(){
-                $(this).removeClass("active");
-            });
-
-            $(".cinemaWin .main .regionArea a").unbind("click").click(function(){
-                $(this).siblings().removeClass("active");
-                $(this).addClass("active")
-            });
-    	});
-    </script>
+    <script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
 	<div class="wepiaoContainer minWepiaoContainer">
@@ -191,89 +40,89 @@
                                 <div class="regionItem">
                                     <div class="region_firstKey">A</div>
                                     <div class="region_cities">
-                                        <a href="javacript:void(0);">安顺</a>
-                                        <a href="javacript:void(0);">安宁</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安顺</a>
+                                        <a href="javascript:void(0);">安宁</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
                                     </div>
                                 </div>
                                 <div class="regionItem">
                                     <div class="region_firstKey">B</div>
                                     <div class="region_cities">
-                                        <a href="javacript:void(0);">安顺</a>
-                                        <a href="javacript:void(0);">安宁</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
-                                        <a href="javacript:void(0);">安顺</a>
-                                        <a href="javacript:void(0);">安宁</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
-                                        <a href="javacript:void(0);">安顺</a>
-                                        <a href="javacript:void(0);">安宁</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
-                                        <a href="javacript:void(0);">安顺</a>
-                                        <a href="javacript:void(0);">安宁</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安顺</a>
+                                        <a href="javascript:void(0);">安宁</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安顺</a>
+                                        <a href="javascript:void(0);">安宁</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安顺</a>
+                                        <a href="javascript:void(0);">安宁</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安顺</a>
+                                        <a href="javascript:void(0);">安宁</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
                                     </div>
                                 </div>
 
                                 <div class="regionItem">
                                     <div class="region_firstKey">C</div>
                                     <div class="region_cities">
-                                        <a href="javacript:void(0);">安顺</a>
-                                        <a href="javacript:void(0);">安宁</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
-                                        <a href="javacript:void(0);">安顺</a>
-                                        <a href="javacript:void(0);">安宁</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
-                                        <a href="javacript:void(0);">安顺</a>
-                                        <a href="javacript:void(0);">安宁</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安顺</a>
+                                        <a href="javascript:void(0);">安宁</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安顺</a>
+                                        <a href="javascript:void(0);">安宁</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安顺</a>
+                                        <a href="javascript:void(0);">安宁</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
                                     </div>
                                 </div>
 
                                 <div class="regionItem">
                                     <div class="region_firstKey">D</div>
                                     <div class="region_cities">
-                                        <a href="javacript:void(0);">安顺</a>
-                                        <a href="javacript:void(0);">安宁</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
-                                        <a href="javacript:void(0);">安顺</a>
-                                        <a href="javacript:void(0);">安宁</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
-                                        <a href="javacript:void(0);">安顺</a>
-                                        <a href="javacript:void(0);">安宁</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
-                                        <a href="javacript:void(0);">安顺</a>
-                                        <a href="javacript:void(0);">安宁</a>
-                                        <a href="javacript:void(0);">安阳</a>
-                                        <a href="javacript:void(0);">安庆</a>
-                                        <a href="javacript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安顺</a>
+                                        <a href="javascript:void(0);">安宁</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安顺</a>
+                                        <a href="javascript:void(0);">安宁</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安顺</a>
+                                        <a href="javascript:void(0);">安宁</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
+                                        <a href="javascript:void(0);">安顺</a>
+                                        <a href="javascript:void(0);">安宁</a>
+                                        <a href="javascript:void(0);">安阳</a>
+                                        <a href="javascript:void(0);">安庆</a>
+                                        <a href="javascript:void(0);">鞍山</a>
                                     </div>
                                 </div>
                             </div>
@@ -353,8 +202,8 @@
                     <span class="regionMsg">已为您定位 青年路  朝阳区<a href="#">[修改]</a></span>
                 </div>
                 <div class="regionChoose">
-                    <div class="inputCon">
-                        <input type="text" value="有一个地方只有我们知道"/>
+                    <div class="inputCon movieInput">
+                        <input type="text" value="选择一部影片" readonly/>
                         <div class="movieChoseWin">
                             <div class="jiantou"></div>
                             <div class="title">
@@ -441,8 +290,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="inputCon">
-                        <input type="text" value="北京金逸国际影城大悦城店"/>
+                    <div class="inputCon cinemaInput">
+                        <input type="text" value="选择一家影院" readonly/>
                         <div class="movieChoseWin cinemaWin">
                             <div class="jiantou"></div>
                             <div class="title">
@@ -496,8 +345,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="inputCon">
-                        <input type="text" value="今天 3月23日(周五)"/>
+                    <div class="inputCon dateInput disable">
+                        <input type="text" value="选择时间" readonly/>
                         <div class="movieChoseWin dateWin">
                             <div class="jiantou"></div>
                             <div class="title">
@@ -521,11 +370,12 @@
                                     <div><a href="javascript:void(0);" class="type">国语3D</a></div>
                                     <div><a href="javascript:void(0);" class="address">6号厅</a></div>
                                     <div class="priceDiv">
-                                        <span href="javascript:void(0);" class="price">
+                                        <!-- <span href="javascript:void(0);" class="price">
                                             <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
                                             <a href="javascript:void(0);" class="prePrice">￥43</a>
                                             <a href="javascript:void(0);" class="allPrice"></a>
-                                        </span>
+                                        </span> -->
+                                        <span class="normalPrice">￥43</span>
                                     </div>
                                     <div class="buyBtnConDiv">
                                         <a href="javascript:void(0);" class="buyBtnCon"></a>
@@ -537,11 +387,7 @@
                                     <div><a href="javascript:void(0);" class="type">国语3D</a></div>
                                     <div><a href="javascript:void(0);" class="address">6号厅</a></div>
                                     <div class="priceDiv">
-                                        <span href="javascript:void(0);" class="price">
-                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
-                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
-                                            <a href="javascript:void(0);" class="allPrice"></a>
-                                        </span>
+                                         <span class="normalPrice">￥43</span>
                                     </div>
                                     <div class="buyBtnConDiv">
                                         <a href="javascript:void(0);" class="buyBtnCon"></a>
@@ -553,11 +399,7 @@
                                     <div><a href="javascript:void(0);" class="type">国语3D</a></div>
                                     <div><a href="javascript:void(0);" class="address">6号厅</a></div>
                                     <div class="priceDiv">
-                                        <span href="javascript:void(0);" class="price">
-                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
-                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
-                                            <a href="javascript:void(0);" class="allPrice"></a>
-                                        </span>
+                                         <span class="normalPrice">￥43</span>
                                     </div>
                                     <div class="buyBtnConDiv">
                                         <a href="javascript:void(0);" class="buyBtnCon"></a>
@@ -569,11 +411,7 @@
                                     <div><a href="javascript:void(0);" class="type">国语3D</a></div>
                                     <div><a href="javascript:void(0);" class="address">6号厅</a></div>
                                     <div class="priceDiv">
-                                        <span href="javascript:void(0);" class="price">
-                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
-                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
-                                            <a href="javascript:void(0);" class="allPrice"></a>
-                                        </span>
+                                        <span class="normalPrice">￥43</span>
                                     </div>
                                     <div class="buyBtnConDiv">
                                         <a href="javascript:void(0);" class="buyBtnCon"></a>
@@ -585,11 +423,7 @@
                                     <div><a href="javascript:void(0);" class="type">国语3D</a></div>
                                     <div><a href="javascript:void(0);" class="address">6号厅</a></div>
                                     <div class="priceDiv">
-                                        <span href="javascript:void(0);" class="price">
-                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
-                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
-                                            <a href="javascript:void(0);" class="allPrice"></a>
-                                        </span>
+                                        <span class="normalPrice">￥43</span>
                                     </div>
                                     <div class="buyBtnConDiv">
                                         <a href="javascript:void(0);" class="buyBtnCon"></a>
@@ -602,11 +436,7 @@
                                     <div><a href="javascript:void(0);" class="type">国语3D</a></div>
                                     <div><a href="javascript:void(0);" class="address">6号厅</a></div>
                                     <div class="priceDiv">
-                                        <span href="javascript:void(0);" class="price">
-                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
-                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
-                                            <a href="javascript:void(0);" class="allPrice"></a>
-                                        </span>
+                                        <span class="normalPrice">￥43</span>
                                     </div>
                                     <div class="buyBtnConDiv">
                                         <a href="javascript:void(0);" class="buyBtnCon"></a>
@@ -618,11 +448,7 @@
                                     <div><a href="javascript:void(0);" class="type">国语3D</a></div>
                                     <div><a href="javascript:void(0);" class="address">6号厅</a></div>
                                     <div class="priceDiv">
-                                        <span href="javascript:void(0);" class="price">
-                                            <a href="javascript:void(0);" class="nowPrice">￥9.9</a>
-                                            <a href="javascript:void(0);" class="prePrice">￥43</a>
-                                            <a href="javascript:void(0);" class="allPrice"></a>
-                                        </span>
+                                         <span class="normalPrice">￥43</span>
                                     </div>
                                     <div class="buyBtnConDiv">
                                         <a href="javascript:void(0);" class="buyBtnCon"></a>
@@ -715,7 +541,7 @@
                 </div>
                 <div class="movelistCon">
                     <div class="movelist_title">
-                        <span class="playPiao">演出票</span>
+                        <span class="playPiao">即将上映</span>
                         <span class="allMoive">所有影片></span>
                     </div>
                     <div class="movelist_items">
@@ -762,6 +588,110 @@
                     </div>
                    
                 </div>
+                 <div class="movelistCon hotCinemaCon">
+                    <div class="movelist_title">
+                        <span class="playPiao">热门影院</span>
+                        <span class="allMoive">所有影院></span>
+                    </div>
+                    <div class="movelist_items">
+                        <div class="movelist_item">
+                           <div class="cinemaMsg">
+                                <span class="name">北京耀莱成龙国际影城（五棵松店）</span>
+                                <span class="address">
+                                    <img src="css/images/index/gpsIcon2.png"/>
+                                    <a href="javascript:void(0)">北京市海淀区复兴路69号卓展购物中心5层东侧</a>
+                                </span>
+                                <span class="message">
+                                    15部影片上映97场
+                                    <img src="css/images/index/imaxIcon.png">
+                                    <img src="css/images/index/dolbyIcon.png">
+                                    <img src="css/images/index/jumuIcon.png">
+                                </span>
+                           </div>
+                           <div class="cinemaBuy">
+                                <a href="javascript:void(0);" class="price">
+                                    <span class="icon">¥ </span><span class="number">35</span>元起
+                                </a>
+                                <a href="javascript:void(0);" class="buyBtnBg">
+
+                                </a>
+                           </div>
+                        </div>
+
+                         <div class="movelist_item">
+                           <div class="cinemaMsg">
+                                <span class="name">北京耀莱成龙国际影城（五棵松店）</span>
+                                <span class="address">
+                                    <img src="css/images/index/gpsIcon2.png"/>
+                                    <a href="javascript:void(0)">北京市海淀区复兴路69号卓展购物中心5层东侧</a>
+                                </span>
+                                <span class="message">
+                                    15部影片上映97场
+                                    <img src="css/images/index/imaxIcon.png">
+                                    <img src="css/images/index/dolbyIcon.png">
+                                    <img src="css/images/index/jumuIcon.png">
+                                </span>
+                           </div>
+                           <div class="cinemaBuy">
+                                <a href="javascript:void(0);" class="price">
+                                    <span class="icon">¥ </span><span class="number">35</span>元起
+                                </a>
+                                <a href="javascript:void(0);" class="buyBtnBg">
+
+                                </a>
+                           </div>
+                        </div>
+
+                         <div class="movelist_item">
+                           <div class="cinemaMsg">
+                                <span class="name">北京耀莱成龙国际影城（五棵松店）</span>
+                                <span class="address">
+                                    <img src="css/images/index/gpsIcon2.png"/>
+                                    <a href="javascript:void(0)">北京市海淀区复兴路69号卓展购物中心5层东侧</a>
+                                </span>
+                                <span class="message">
+                                    15部影片上映97场
+                                    <img src="css/images/index/imaxIcon.png">
+                                    <img src="css/images/index/dolbyIcon.png">
+                                    <img src="css/images/index/jumuIcon.png">
+                                </span>
+                           </div>
+                           <div class="cinemaBuy">
+                                <a href="javascript:void(0);" class="price">
+                                    <span class="icon">¥ </span><span class="number">35</span>元起
+                                </a>
+                                <a href="javascript:void(0);" class="buyBtnBg">
+
+                                </a>
+                           </div>
+                        </div>
+
+                         <div class="movelist_item">
+                           <div class="cinemaMsg">
+                                <span class="name">北京耀莱成龙国际影城（五棵松店）</span>
+                                <span class="address">
+                                    <img src="css/images/index/gpsIcon2.png"/>
+                                    <a href="javascript:void(0)">北京市海淀区复兴路69号卓展购物中心5层东侧</a>
+                                </span>
+                                <span class="message">
+                                    15部影片上映97场
+                                    <img src="css/images/index/imaxIcon.png">
+                                    <img src="css/images/index/dolbyIcon.png">
+                                    <img src="css/images/index/jumuIcon.png">
+                                </span>
+                           </div>
+                           <div class="cinemaBuy">
+                                <a href="javascript:void(0);" class="price">
+                                    <span class="icon">¥ </span><span class="number">35</span>元起
+                                </a>
+                                <a href="javascript:void(0);" class="buyBtnBg">
+
+                                </a>
+                           </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
             <div class="wepiao_main_moivesort">
                 <div class="moivesortCon moive_hostactivity">
@@ -794,7 +724,7 @@
                 <div class="moivesortCon movieSortlist moive_hostmovie">
                     <div class="title">
                         <span class="icon"></span>
-                        <span class="name">热门影片</span>
+                        <span class="name">本周票房榜</span>
                     </div>
                     <div class="list">
                         <div class="item">
@@ -824,7 +754,7 @@
                     </div>
                 </div>
 
-                <div class="moivesortCon movieSortlist moive_hostcinema">
+              <!--   <div class="moivesortCon movieSortlist moive_hostcinema">
                     <div class="title">
                         <span class="icon"></span>
                         <span class="name">热门影院</span>
@@ -855,7 +785,7 @@
                             <span class="name">博纳国际影城(朝阳店)</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="moivesortCon movieSortlist movie_newmovie">
                     <div class="title">

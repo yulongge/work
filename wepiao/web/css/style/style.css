@@ -196,15 +196,21 @@
 
 
 
- .wepiaoContainer .wepiao_nav .regionCon .gps{width: 746px;height:23px;margin: 0 auto;}
+ .wepiaoContainer .wepiao_nav .regionCon .gps{display:none;width: 746px;height:23px;margin: 0 auto;}
  .wepiaoContainer .wepiao_nav .regionCon .gps span{display: inline-block;}
  .wepiaoContainer .wepiao_nav .regionCon .gps .icon{width:17px;height: 23px;vertical-align:bottom;}
  .wepiaoContainer .wepiao_nav .regionCon .gps .regionMsg{font-size: 18px;line-height: 23px;color: #ffffff;}
  .wepiaoContainer .wepiao_nav .regionCon .gps .regionMsg a{color: #d1d1d1;font-size: 18px;text-decoration: none;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose{width: 1000px;margin: 0 auto;margin-top: 10px;z-index:90;position: relative !important;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon{position:relative;cursor:pointer;float: left;margin-left:5px;background:url(../images/index/selectInputBg1.png);width:256px;height:38px;text-align: left; }
+ .wepiaoContainer .wepiao_nav .regionCon .regionChoose .disable{background:url(../images/index/selectInputBgDis.png);color: #9f9a96;} 
+
+
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputConWin{background: url(../images/index/selectInputBg2.png);}
- .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon input{cursor:pointer;width:220px;height:30px;margin:3px;background-color:transparent;border: none;line-height: 26px;font-size: 18px;color: #565656;}
+ .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputConWin input{color:#565656;}
+ .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon input{padding-left:10px;cursor:pointer;width:210px;height:30px;margin:3px;background-color:transparent;border: none;line-height: 26px;font-size: 18px;color: #565656;}
+ .wepiaoContainer .wepiao_nav .regionCon .regionChoose .disable input{color: #9f9a96;} 
+
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .buyBtn{margin-left:15px;float:left;width:194px;height: 39px;background: url(../images/index/loginBtn.png);}
 
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin{display:none;width:680px;border: 0px solid red;z-index: 100;z-index:100 !important;position: absolute;position: relative !important;}
@@ -214,6 +220,11 @@
 
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .title .close{display: inline-block;width: 20px;height: 20px;background: url(../images/index/closeWin.png);margin-left: 485px;cursor: pointer;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .main{max-height: 200px;max-height: 360px;width:680px;background: #ffffff;overflow: auto;scrollbar-face-color:#2ed2c1;}
+ .movieChoseWin .main::-webkit-scrollbar{width:10px;background-color:#2ed2c1;}
+ .movieChoseWin .main::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);border-radius: 10px;background-color: #eeeeee;}
+ .movieChoseWin .main::-webkit-scrollbar-thumb{border-radius: 10px;-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);background-color: #2ed2c1;}
+ 
+
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .main .movieItem{margin:10px;height: 110px;width:305px;float: left;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .main .movieItem div{float: left;background: #ffffff;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .main .movieItem .photo{width:80px;height: 110px;background: url(../images/index/win_moviePhoto.png);}
@@ -232,7 +243,13 @@
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .cinemaWin	.main .regionArea a{display: block;height:25px;width:100%;font-size: 14px;line-height: 25px;text-align: center;text-decoration: none;color: #868686;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .cinemaWin	.main .regionArea .allArea{height: 30px;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .cinemaWin	.main .regionArea .active{background: #ffffff;}
+
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .cinemaWin	.main .cinemaArea{height:358px;overflow:auto;float: left;width:570px;}
+ .cinemaWin	.main .cinemaArea::-webkit-scrollbar{width:10px;background-color:#2ed2c1;}
+ .cinemaWin	.main .cinemaArea::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);border-radius: 10px;background-color: #eeeeee;}
+ .cinemaWin	.main .cinemaArea::-webkit-scrollbar-thumb{border-radius: 10px;-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);background-color: #2ed2c1;}
+ 
+
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .cinemaWin	.main .cinemaArea a{display: inline-block;width:220px;margin-left:35px;margin-top:20px;height:30px;line-height: 30px;font-size: 14px;text-decoration: none;color:#868686;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .cinemaWin	.main .cinemaArea a:hover{color: #2ed2c1;}
 
@@ -259,7 +276,8 @@
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .dateWin .main .item .address{font-size: 18px;color: #a2a2a2;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .dateWin .main .item .price{margin-top: 15px;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .dateWin .main .item .price a{display: inline-block;}
-
+ 
+ .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .dateWin .main .item .priceDiv .normalPrice{font-size: 22px;color: #5cc9bd;line-height: 70px;}
 
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .dateWin .main .item .price .nowPrice{font-size: 22px;color: #5cc9bd;text-decoration: none;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .dateWin .main .item .price .prePrice{text-decoration:line-through;font-size: 14px;color: #a2a2a2;}
@@ -293,6 +311,29 @@
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .isntruction .favorite font{color: #0ad4c1;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .isntruction .hostTopic{font-size: 12px;color:#a2a2a2;}
  
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item{height: 175px;border:0px solid blue;width:100%;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaMsg{float: left;width:420px;height:110px;border:0px solid #565656;margin-top:32px;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaMsg span{display: block;margin-top: 10px;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaMsg .name{font-size: 20px;color: 565656;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaMsg .address{font-size: 16px;color: #a2a2a2;line-height: 24px;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaMsg .address img{vertical-align: bottom;}
+ 
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaMsg .address a{text-decoration: none;color: #a2a2a2;}
+
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaMsg .message{font-size: 16px;color: #a2a2a2;line-height: 24px;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaMsg .message img{vertical-align: bottom;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaBuy{text-align:center;float: left;width:210px;margin-left:235px;margin-top:40px;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaBuy a{display: block;text-decoration: none;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaBuy .price{font-size: 18px;color: #999999;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaBuy .icon{color: #ed6d77;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaBuy .number{font-size: 30px;color:#ed6d77; }
+
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .hotCinemaCon .movelist_items .movelist_item .cinemaBuy .buyBtnBg{background: url(../images/index/buyRIghtNowCinema.png);width:194px;height:38px;margin-top:20px;}
+
+
+
+
+
 
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort{float:left;width:292px;border:0px solid red;margin-left: 35px;margin-top: 52px;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon{width:100%;height: 404px;border:1px solid #e2e2e2;margin-top:20px;}
@@ -354,9 +395,9 @@
 /*
 微信广告
 */
-.weixinAder{background:#ffffff;text-align:center;z-index:200;width:291px;height: 345px;border:1px solid #e2e2e2;position: fixed;right:2px;bottom:2px;-webkit-border-radius：10px;-moz-border-radius:10px;border-radius: 10px;behavior: url(css/style/PIE-1.0.0/PIE.htc);}
-.weixinAder .title{height: 28px;font-size: 30px;color: #565656;line-height: 28px;margin-top:33px;}
-.weixinAder .icon{width:161px;height:168px;background: url(../images/index/erwema.jpg);margin:0 auto;margin-top:25px;}
+.weixinAder{background:#ffffff;text-align:center;z-index:200;width:191px;height: 295px;border:1px solid #e2e2e2;position: fixed;right:2px;bottom:2px;-webkit-border-radius：10px;-moz-border-radius:10px;border-radius: 10px;behavior: url(css/style/PIE-1.0.0/PIE.htc);}
+.weixinAder .title{height: 28px;font-size: 18px;color: #565656;line-height: 28px;margin-top:33px;}
+.weixinAder .icon{width:108px;height:109px;background: url(../images/index/erwema.jpg);margin:0 auto;margin-top:25px;}
 .weixinAder .instruction{}
 .weixinAder .instruction p{font-size: 18px;color: #a2a2a2;margin:12px;}
 
