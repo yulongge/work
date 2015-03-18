@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">   
+<head>
+    <meta charset="utf-8"></meta>
+    <title>wepiao</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style/style.css" />
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/Login.js"></script>
+    <script type="text/javascript" src="js/modernizr.custom.js"></script>
+    <style type="text/css">
+		.imgbox{width:500px;height:300px;border:1px solid red;margin:0 auto;position: relative;}
+        .imgbox div{display:none;position: absolute;}
+    </style>
+    <script type="text/javascript">
+    $(document).ready(function () {
+            (new CenterImgPlay()).Start();
+        });
+     function CenterImgPlay() {
+            this.list = $(".imgbox").children();
+            this.indexs = [];
+            this.length = this.list.length;
+            //图片显示时间
+            this.timer = 10000;
+            this.showTitle = $(".title");
+
+            var index = 0, self = this, pre = 0, handid, isPlay = false, isPagerClick = false;
+
+            this.Start = function () {
+               
+                //计时器，用于定时轮播图片
+                handid = setInterval(self.Play, this.timer);
+            };
+           
+            this.Play = function () {
+                isPlay = true;
+                index++;
+                if (index == self.length) {
+                    index = 0;
+                }
+                //先淡出，在回调函数中执行下一张淡入
+                self.list.eq(pre).fadeOut(2000, "linear", function () {
+                    
+                });
+                var info = self.list.eq(index).fadeIn(2000, "linear", function () {
+                        isPlay = false;
+                       
+                    })
+                    pre = index;
+            };
+            //图片序号点击
+            this.PagerClick = function () {
+                if (isPlay) { return; }
+                isPagerClick = true;
+
+                clearInterval(handid);
+
+                var oPager = $(this), i = parseInt(oPager.text()) - 1;
+
+                if (i != pre) {
+                    index = i - 1;
+                    self.Play();
+                }
+            };
+        };
+    </script>
+
+    
+</head>
+<body>
+	<div class="wepiao_imageShow">
+		<div class="imgbox">
+            <div style="background:red;width:100%;height:100%;display:block;"></div>
+            <div style="background:blue;width:100%;height:100%;"></div>
+            <div style="background:black;width:100%;height:100%;"></div>
+            <div style="background:yellow;width:100%;height:100%;"></div>
+        </div>
+	       
+	</div>
+</body>
+</html>

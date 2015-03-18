@@ -1,10 +1,10 @@
 function imgboxPlay(){
     		//图片集合
-    		this.list = $(".imgbox").children(":first").children();
+    		this.list = $(".imgbox").children();
     		this.indexs = [];
     		this.length = this.list.length;
     		//图片显示时间
-    		this.timer = 5000;
+    		this.timer = 10000;
     		var index = 0 ,self = this,pre = 0,handId,isPlay = false,isBtnClick = false;
 
     		//图片轮播
@@ -15,19 +15,18 @@ function imgboxPlay(){
     				index = 0;
     			}
     			//alert(index+"===="+pre+"====="+index);
-    			self.list.eq(pre).fadeOut(500,"linear",function(){
-    				var info = self.list.eq(index).fadeIn(800,"linear",function(){
-    					isPlay = false;
-    					if(isBtnClick){
-    						handId = setInterval(self.Play,self.timer);
-    						isBtnClick = false;
-    					}
+    			self.list.eq(pre).fadeOut(5000,"linear",function(){});
+                var info = self.list.eq(index).fadeIn(5000,"linear",function(){
+                        isPlay = false;
+                        if(isBtnClick){
+                            handId = setInterval(self.Play,self.timer);
+                            isBtnClick = false;
+                        }
 
-    				});
+                });
 
-    				pre = index;
-
-    			});
+                pre = index;
+                
     		}
     		this.rPlay = function(){
     			isPlay = true;
@@ -35,17 +34,15 @@ function imgboxPlay(){
     			if(index == -1){
     				index = 3;
     			}
-    			self.list.eq(pre).fadeOut(500,"linear",function(){
-    				var info = self.list.eq(index).fadeIn(800,"linear",function(){
-    					isPlay = false;
-    					if(isBtnClick){
-    						handId = setInterval(self.Play,self.timer);
-    						isBtnClick = false;
-    					}
-    				});
-    				pre = index;
-
-    			});
+    			self.list.eq(pre).fadeOut(5000,"linear",function(){});
+                var info = self.list.eq(index).fadeIn(5000,"linear",function(){
+                        isPlay = false;
+                        if(isBtnClick){
+                            handId = setInterval(self.Play,self.timer);
+                            isBtnClick = false;
+                        }
+                });
+                pre = index;
     		}
     		//左右点击切换
     		this.BtnClick = function(){
@@ -81,6 +78,11 @@ $(document).ready(function(){
     var imgboxPlayer = new imgboxPlay();
     imgboxPlayer.Start();
 	//(new imgboxPlay()).Start();
+    $(".wepiaoContainer .wepiao_nav .imgbox").mouseenter(function(){
+        imgboxPlayer.Stop();
+    }).mouseleave(function(){
+        imgboxPlayer.Start();
+    });
 
     //获取屏幕分辨率
     var screenWidth = window.screen.width;
@@ -91,19 +93,31 @@ $(document).ready(function(){
     }
 
     //导航菜单
-    $(".wepiaoContainer .header .menu .menuCon a").unbind("click").click(function(){
+    $(".wepiaoContainer .header .menu .menuCon a").unbind("click").click(function(e){
+        e.stopPropagation();
         $(this).parent().siblings().find("a").removeClass("active");
         $(this).addClass("active");
     });
 
     //列表切换
-    $(".wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title .tabplay").unbind("click").click(function(){
+    $(".wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title .tabplay").unbind("click").click(function(e){
+        e.stopPropagation();
+        return;
         $(this).siblings().removeClass("active");
         $(this).addClass("active");
+        $(".nowPlayList").hide();
+        $(".futurePlayList").hide();
+        if($(this).hasClass("nowPlay")){
+            $(".nowPlayList").show();
+        }
+        if($(this).hasClass("futurePlay")){
+            $(".futurePlayList").show();
+        }
     });
 
     //显示区域选择
-    $(".wepiaoContainer .header .menu .region .showRegion").unbind("click").click(function(){
+    $(".wepiaoContainer .header .menu .region .showRegion").unbind("click").click(function(e){
+        e.stopPropagation();
         var _this = this;
         var regionChooseWindow = $(".regionChooseWindow");
         if(regionChooseWindow.is(":visible")){
@@ -111,7 +125,7 @@ $(document).ready(function(){
         }else{
             regionChooseWindow.show();
             //点击城市
-            regionChooseWindow.find("a").unbind("click").click(function(){
+            regionChooseWindow.find(".tabBanner .main a").unbind("click").click(function(){
                 var regionName = $(this).text();
                 $(_this).find("span").eq(0).text(regionName);
                 regionChooseWindow.hide();
@@ -125,6 +139,8 @@ $(document).ready(function(){
             regionChooseWindow.find(".banner .tabBanner").unbind("click").click(function(){
                 $(this).siblings().removeClass("active");
                 $(this).addClass("active");
+                $(this).siblings().find(".main").hide();
+                $(this).find(".main").show();
                 //请求数据
                /* $.ajax({
                     type:"POST",
@@ -150,10 +166,14 @@ $(document).ready(function(){
     });
 
     //影片信息选购
-    $(".wepiao_nav .regionCon .regionChoose .inputCon").unbind("click").click(function(){
+    var currentMovieId = "";
+    var currentCinemaId = "";
+    var dateWinId = "";
+    $(".wepiao_nav .regionCon .regionChoose .inputCon").unbind("click").click(function(e){
+        e.stopPropagation();
     	var inputConAll = $(".wepiao_nav .regionCon .regionChoose .inputCon");
     	var currentInputCon = $(this);
-    	var currentWin = currentInputCon.find(".movieChoseWin");
+    	var currentWin = null;
         var movieInput = $(".movieInput input");
         var cinemaInput = $(".cinemaInput input");
         var dateInput = $(".dateInput input");
@@ -161,9 +181,12 @@ $(document).ready(function(){
         
 
         if(currentInputCon.hasClass("movieInput")){//如果是选择影片
+            currentWin = currentInputCon.find(".movieChoseWin");
         	currentWin.find(".main").find(".movieItem").unbind("click").click(function(e){
         		e.stopPropagation();
         		var movieName = $(this).find(".instruction").find(".name").text();
+                currentCinemaId = $(this).attr("movieCinemaWinId");
+                
         		currentInputCon.find("input").val(movieName);
         		currentWin.hide();
                 if(movieInput.val()==movieInput[0].defaultValue || cinemaInput.val()==cinemaInput[0].defaultValue){
@@ -171,24 +194,43 @@ $(document).ready(function(){
                 }else{
                     dateInput.parent().removeClass("disable");
                 }
-
 
         	});
         }
         if(currentInputCon.hasClass("cinemaInput")){//如果是选择影院
+            currentInputCon.find(".movieChoseWin").each(function(i,v){
+                if($(v).attr("movieCinemaWinId") == currentCinemaId){
+                    currentWin = $(v);
+                    return;
+                }
+            });
+            if(currentWin==null||currentWin==undefined){
+                currentWin = currentInputCon.find(".movieChoseWin").eq(0);
+            }
+            currentWin.siblings(".movieChoseWin").hide();
         	currentWin.find(".main").find(".cinemaArea").find("a").unbind("click").click(function(e){
         		e.stopPropagation();
         		var movieName = $(this).text();
         		currentInputCon.find("input").val(movieName);
+                dateWinId = $(this).attr("dateWinId");
         		currentWin.hide();
                 if(movieInput.val()==movieInput[0].defaultValue || cinemaInput.val()==cinemaInput[0].defaultValue){
                     dateInput.parent().addClass("disable");
                 }else{
                     dateInput.parent().removeClass("disable");
                 }
-        	})
+        	});
+            
         }
         if(currentInputCon.hasClass("dateInput")){//如果是选择时间
+            currentInputCon.find(".movieChoseWin").each(function(i,v){
+                if($(v).attr("dateWinId") == dateWinId){
+                    currentWin = $(v);
+                }
+            });
+            if(currentWin==null||currentWin==undefined){
+                currentWin = currentInputCon.find(".movieChoseWin").eq(0);
+            }
         	
         	if(movieInput.val()==movieInput[0].defaultValue || cinemaInput.val()==cinemaInput[0].defaultValue)
         	return false;
@@ -202,23 +244,43 @@ $(document).ready(function(){
         $(".movieChoseWin").hide()
         currentInputCon.addClass("inputConWin");
         currentWin.show();
-        imgboxPlayer.Stop();
+        if(currentInputCon.hasClass("cinemaInput")){//如果是选择影院
+            currentWin.find(".main .cinemaArea").height(currentWin.find(".main").height());
+        }
+        //imgboxPlayer.Stop();
 
         currentWin.find(".close").unbind("click").click(function(e){//关闭窗口
 	        e.stopPropagation();
 	        $(this).parents(".inputCon").removeClass("inputConWin")
 	        $(this).parents(".movieChoseWin").hide()
 	        $(".regionChoose .buyBtn").show();
-	        imgboxPlayer.Start();
+	        //imgboxPlayer.Start();
 	    });
     });
 
    
 
-    $(".dateWin .title .dateItem").unbind("click").click(function(){
+    $(".dateWin .title .dateItem").unbind("click").click(function(e){
+        e.stopPropagation();
         $(this).siblings().removeClass("active");
+        $(this).siblings().find(".main").hide();
         $(this).addClass("active")
+        $(this).find(".main").show();
     });
+    var dateItemCon = $(".dateWin .title .dateItemCon")[0];
+    $(".dateWin .title .dateItemBtn").unbind("click").click(function(e){
+        e.stopPropagation();
+        if($(this).hasClass("btnLeftCon")){
+            if(dateItemCon.scrollLeft>=0)
+            dateItemCon.scrollLeft-=165;
+        }else{
+            if(dateItemCon.scrollLeft<=(1000-567)){
+                dateItemCon.scrollLeft+=165;
+            }
+        }   
+    });
+
+
 
     $(".dateWin .main .item").mouseenter(function(){
         $(this).addClass("active");
@@ -226,12 +288,20 @@ $(document).ready(function(){
         $(this).removeClass("active");
     });
 
-    $(".cinemaWin .main .regionArea a").unbind("click").click(function(){
-        $(this).siblings().removeClass("active");
-        $(this).addClass("active")
+    $(".cinemaWin .main .regionArea .regionName").unbind("click").click(function(e){
+        e.stopPropagation();
+        $(this).parent().siblings().find(".regionName").removeClass("active");
+        $(this).parent().siblings().find(".cinemaArea").hide();
+        $(this).addClass("active");
+        $(this).next().show();
     });
 
     //导航栏选择地区城市
     //$(".menu .showRegion")
+    $("body").click(function(){
+        $(".movieChoseWin").hide();
+        $(".wepiao_nav .regionCon .regionChoose .inputCon").removeClass("inputConWin");
+        $(".regionChoose .buyBtn").show();
+    });
 });
 
