@@ -153,7 +153,7 @@ src: url('../font/dongqing.otf'),
  .wepiaoContainer .header .menu .region .regionChooseWindow .banner .hotCity{width: 100px;line-height: 53px;margin-top:21px;text-align: center;}
 
  .wepiaoContainer .header .menu .region .regionChooseWindow .banner .active{background: #ffffff;}
- .wepiaoContainer .header .menu .region .regionChooseWindow .banner .regionSearch{width: 230px;height: 38px;background: url(../images/index/banner_searchBg.png);text-align: left;margin-top: 27px;}
+ .wepiaoContainer .header .menu .region .regionChooseWindow .banner .regionSearch{width: 230px;height: 38px;background: url(../images/index/banner_searchBg.png);text-align: left;margin-top: 27px;margin-left:70px;}
  .wepiaoContainer .header .menu .region .regionChooseWindow .banner .regionSearch input{width:185px;height: 30px;margin:3px;border:none;background-color: transparent;line-height: 30px;font-size: 14px;color: #a2a2a2;} 
  .wepiaoContainer .header .menu .region .regionChooseWindow .banner .closeWin{cursor:pointer;width: 20px;height: 20px;background: url(../images/index/closeWin.png);margin-top:35px;margin-left:23px;}
 
@@ -164,9 +164,9 @@ src: url('../font/dongqing.otf'),
  .wepiaoContainer .header .menu .region .regionChooseWindow .main .regionItem{width: 100%;overflow: hidden;}
  .wepiaoContainer .header .menu .region .regionChooseWindow .main .regionItem div{float: left;line-height: 40px;}
  .wepiaoContainer .header .menu .region .regionChooseWindow .main .regionItem .region_firstKey{width:20px;color: #565656;font-size: 18px;margin-left: 34px;}
- .wepiaoContainer .header .menu .region .regionChooseWindow .main .regionItem .region_cities{border-bottom: 1px solid #e4e4e4;margin-left: 36px;max-width: 800px;}
+ .wepiaoContainer .header .menu .region .regionChooseWindow .main .regionItem .region_cities{border-bottom: 1px solid #e4e4e4;margin-left: 36px;width: 768px;}
  .wepiaoContainer .header .menu .region .regionChooseWindow .main .regionItem .region_cities a{height:40px;width:80px;text-decoration: none;display: inline-block;color: #565656;font-size: 14px;}
-
+ .wepiaoContainer .header .menu .region .regionChooseWindow .main .regionItem .region_cities .active{color: #2ed2c1;}
  .wepiaoContainer .header .menu .region .regionChooseWindow .banner .main{width:924px;position: absolute;left:0px;text-align: left;display: none;}
 
  .wepiaoContainer .header .menu .menuCon{float:left;width:470px;height:100%;font-size: 22px;color: #ffffff;line-height: 86px;z-index: 200;}
@@ -313,25 +313,27 @@ src: url('../font/dongqing.otf'),
 
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist{float: left;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon{width:868px;margin-top: 50px;}
- .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title{margin:0 auto;width:860px;margin-top:15px;position: relative;font-weight: bold;border-bottom:1px solid #b2b2b2;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title{margin:0 auto;width:830px;margin-top:15px;position: relative;font-weight: bold;border-bottom:1px solid #b2b2b2;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title span{display: inline-block;font-size: 26px;line-height: 35px;color: #565656;cursor: pointer;}
+  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title img{position: absolute;right: 0px;margin-top:6px;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title .active{border-bottom:6px solid #00bf8f;color: #0ad4c1;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title .nowPlay{margin-left:0px;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title .titleLine{border:none;margin-left:10px;color: #e4e4e4;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title .futurePlay{margin-left:10px;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title .playPiao{margin-left:0px;}
- .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title .allMoive{position: absolute;right:5px;font-size: 16px;color: #0ad4c1;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title .allMoive{position: absolute;right:35px;font-size: 16px;color: #0ad4c1;font-weight: normal;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items{margin-top:10px;height: 100%;overflow: hidden;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .nowPlayList{display: block;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .futurePlayList{display: none;}
- .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item{position:relative;margin:5px;width:207px;border:0px solid red;float: left;cursor: pointer;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item{position:relative;margin:5px;margin-left:18px;margin-top:20px;width:190px;border:0px solid red;float: left;cursor: pointer;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item a{text-decoration: none;}
- .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .photo{background:url(../images/index/yingpian2.png);height:301px;width:100%;}
- .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .buyRightNow{background: url(../images/index/buyRightNow.png);width:207px;height:54px;position: absolute;top: 247px;left: 0px;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .photo{background:url(../images/index/yingpian2.png);height:276px;width:100%;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .buyRightNow{background: #2ed2c1;width:100%;height:54px;position: absolute;top: 222px;left: 0px;opacity: 0.9;text-align: center;line-height: 54px;font-size: 20px;color: #ffffff;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .buyRightNow a{text-decoration: none;color: #ffffff;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .buyRightNow a{display:inline-block;width:207px;height:54px;}
 
- .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .isntruction{height:100px;width:100%; }
- .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .isntruction span{vertical-align:baseline;display: block;text-align: center;margin:8px;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .isntruction{height:90px;width:100%; }
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .isntruction span{vertical-align:baseline;display: block;text-align: center;margin:6px;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .isntruction .name{font-size: 20px;color: #333333;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .isntruction .favorite{font-size: 14px;color: #a2a2a2;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .isntruction .favorite font{color: #0ad4c1;}
@@ -362,7 +364,7 @@ src: url('../font/dongqing.otf'),
 
 
 
- .wepiaoContainer .wepiao_main .wepiao_main_moivesort{float:left;width:270px;border:0px solid red;margin-left: 35px;margin-top: 52px;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivesort{float:left;width:291px;border:0px solid red;margin-left: 35px;margin-top: 67px;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon{width:100%;height: 390px;border:1px solid #e2e2e2;margin-top:50px;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .title{width:100%;height:68px;border-bottom: 1px solid #e2e2e2;font-weight: bold;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .title .icon{display: inline-block;width:24px;height:24px;line-height: 68px;margin-left: 25px;}
@@ -373,6 +375,7 @@ src: url('../font/dongqing.otf'),
 
 
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .title .name{font-size: 28px;line-height: 68px;color: #565656;display: inline-block;margin-left:15px;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .title .hotIcon{display: inline-block;width:30px;height:68px;position: relative;left:5px;top:-6px;}
 
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .list{}
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .list a{text-decoration: none;}
@@ -381,16 +384,16 @@ src: url('../font/dongqing.otf'),
 
 
 
- .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .list .item span{display: block;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .list .item span{display: inline-block;}
 
- .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .list .item .name{font-size: 18px;color: #565656;}
- .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .list .item .date{font-size: 14px;margin-top:12px;color: #a2a2a2;}
-
+ .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .list .item .name{font-size: 18px;line-height:20px;color: #565656;max-width: 165px;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .list .item .date{font-size: 14px;margin-top:5px;color: #a2a2a2;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivesort .moivesortCon .list .item .hotIcon{border: 1px solid #ed6d77;vertical-align:top;-webkit-border-radius：5px;-moz-border-radius:5px;border-radius: 5px;behavior: url(css/style/PIE-1.0.0/PIE.htc);display: inline-block;color: #ed6d77;font-size: 14px;padding-left: 5px;padding-right: 5px;margin-left: 5px;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort .movieSortlist{height: 355px;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort .movieSortlist .list .item{height: 30px;text-align: left;margin-left: 25px;margin-top: 15px;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort .movieSortlist .list .item span{display: inline-block;color: #565656;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort .movieSortlist .list .item .number{font-size: 14px;text-align: center;line-height: 18px;width:18px;height:18px;}
- .wepiaoContainer .wepiao_main .wepiao_main_moivesort .movieSortlist .list .item .inTop{background: url(../images/index/xuhaoBg.png);color: #ff7c7c;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivesort .movieSortlist .list .item .inTop{color: #ed6d77;font-weight: bold;font-size: 20px;font-style:italic;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivesort .movieSortlist .list .item .name{font-size: 18px;margin-left: 20px;}
 
  .wepiaoContainer .footer{height: 287px;width:100%;background:#252525; margin-top: 20px;}
