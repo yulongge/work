@@ -221,7 +221,7 @@ src: url('../font/dongqing.otf'),
 
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .buyBtn{margin-left:15px;float:left;width:194px;height: 39px;background: url(../images/index/loginBtn.png);}
 
- .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin{display:none;width:680px;border: 0px solid red;z-index: 100;z-index:100 !important;position: absolute;position: relative !important;}
+ .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin{display:none;width:680px;border: 0px solid red;z-index: 100;z-index:100 !important;position: absolute;position: relative !important;margin-top:6px;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .jiantou{width:28px;height: 14px;background: url(../images/index/window_jt.png);margin-left:120px;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .title{height: 60px;background: #ffffff;font-family: "微软雅黑";font-family: "冬青黑体";font-size: 16px;color: #565656;border-bottom: 1px solid #e4e4e4;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .title span{display: inline-block;margin-left:10px;margin-top:19px;} 
@@ -401,16 +401,16 @@ src: url('../font/dongqing.otf'),
  .wepiaoContainer .footer .footerCon div{float: left;}
  .wepiaoContainer .footer .footerCon .footerItem{margin-top:35px;}
  .wepiaoContainer .footer .logo{margin-left:45px;}
- .wepiaoContainer .footer .logo .icon{background: url(../images/index/footer_logo.png);width:139px;height: 53px;}
+ .wepiaoContainer .footer .logo .icon{background: url(../images/index/footer_logo.png);width:139px;height: 53px;margin-top:10px;}
  .wepiaoContainer .footer .instru{margin-left:20px;margin-top:15px;}
  .wepiaoContainer .footer .instru span{display: block;}
  .wepiaoContainer .footer .instru .instru1{color: #a2a2a2;font-size: 22px;}
  .wepiaoContainer .footer .instru .instru2{color: #565656;font-size: 14px;margin-top:5px;}
  .wepiaoContainer .footer .phoneNumber{margin-left:50px;}
 
- .wepiaoContainer .footer .phoneNumber .icon{margin-top:15px;background: url(../images/index/phoneIcon.png);width:42px;height: 39px;}
+ .wepiaoContainer .footer .phoneNumber .icon{margin-top:25px;background: url(../images/index/phoneIcon.png);width:42px;height: 39px;}
  .wepiaoContainer .footer .weixin{margin-left:50px;}
- .wepiaoContainer .footer .weixin .icon{background: url(../images/index/weixin.jpg);width:77px;height: 77px;}
+ .wepiaoContainer .footer .weixin .icon{background: url(../images/index/weixin.jpg);width:77px;height: 77px;margin-top:7px;}
 
  .wepiaoContainer .footer .line{background: url(../images/index/footer_line.png);width:1px;height: 49px;margin-left:50px;margin-top:45px;}
 
