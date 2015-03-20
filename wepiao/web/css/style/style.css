@@ -8,6 +8,7 @@ src: url('../font/dongqing.otf'),
 }
  html { height:100%; border:0;}
  body { height:100%; margin:0;font-family: dongQing}
+ input::-ms-clear{display:none;}
  /**
  css样式
  **/
@@ -176,8 +177,11 @@ src: url('../font/dongqing.otf'),
 
 
  .wepiaoContainer .header .menu .seachCon{float: left;width:260px;height:38px;background:url(../images/index/searchBg.png);margin-top:27px;margin-left:20px;}
- .wepiaoContainer .header .menu .seachCon input{background-color: transparent;border:none;height:22px;line-height: 22px;margin:7px;width:208px;font-size: 22px;color:#ffffff;}
+ .wepiaoContainer .header .menu .seachCon input{background-color: transparent;border:none;height:22px;line-height: 22px;margin:7px;width:208px;font-size: 20px;color:#ffffff;}
+ .wepiaoContainer .header .menu .seachCon a{display: inline-block;width:20px;height: 20px;}
+
  .wepiaoContainer .header .menu .logoOrSign{color:#ffffff;font-size:18px;width:128px;height:16px;margin-top:38px;margin-left:40px;line-height: 16px;font-size: 18px;border:0px solid red;float:left;}
+ .wepiaoContainer .header .menu .logoOrSign a{text-decoration: none;color: #ffffff;font-size: 18px;}
  .wepiaoContainer .header .menu .logoOrSign .logoOrSign_icon{width:16px;height:16px;display:inline-block;vertical-align: top;}
  .wepiaoContainer .header .menu .logoOrSign .a{text-decoration: none;color: #ffffff;display: inline-block;}
 
@@ -235,7 +239,8 @@ src: url('../font/dongqing.otf'),
 
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .main .movieItem{margin:10px;height: 110px;width:305px;float: left;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .main .movieItem div{float: left;background: #ffffff;}
- .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .main .movieItem .photo{width:80px;height: 110px;background: url(../images/index/win_moviePhoto.png);}
+ .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .main .movieItem .photo{width:80px;height: 110px;}
+ .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .main .movieItem .photo img{width:80px;height: 110px;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .main .movieItem .instruction{height: 110px;width: 220px;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .main .movieItem .instruction span{display: block;margin:12px;}
  .wepiaoContainer .wepiao_nav .regionCon .regionChoose .inputCon .movieChoseWin .main .movieItem .instruction .name{font-size: 16px;color: #333333;}
@@ -327,7 +332,8 @@ src: url('../font/dongqing.otf'),
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .futurePlayList{display: none;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item{position:relative;margin:5px;margin-left:18px;margin-top:20px;width:190px;border:0px solid red;float: left;cursor: pointer;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item a{text-decoration: none;}
- .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .photo{background:url(../images/index/yingpian2.png);height:276px;width:100%;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .photo{height:276px;width:100%;}
+ .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .photo img{width:190px;height:276px;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .buyRightNow{background: #2ed2c1;width:100%;height:54px;position: absolute;top: 222px;left: 0px;opacity: 0.9;text-align: center;line-height: 54px;font-size: 20px;color: #ffffff;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .buyRightNow a{text-decoration: none;color: #ffffff;}
  .wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_items .movelist_item .buyRightNow a{display:inline-block;width:207px;height:54px;}

@@ -303,5 +303,18 @@ $(document).ready(function(){
         $(".wepiao_nav .regionCon .regionChoose .inputCon").removeClass("inputConWin");
         $(".regionChoose .buyBtn").show();
     });
+
+    $(".wepiaoContainer .header .menu .seachCon input").focus(function(){
+        if($(this).val()==this.defaultValue){
+            $(this).val("");
+        }
+        
+    }).blur(function(){
+        if($(this).val()==""){
+            $(this).val(this.defaultValue);
+        }else{
+
+        }
+    });
 });
 
