@@ -158,10 +158,10 @@ $(document).ready(function(){
     
 
     //影片鼠标经过事件
-    $(".wepiao_main .wepiao_main_moivelist .movelistCon:not(.hotCinemaCon) .movelist_items .movelist_item").mouseenter(function(){
+    $(".wepiao_main .wepiao_main_moivelist:not(.showListCon) .movelistCon:not(.hotCinemaCon) .movelist_items .movelist_item").unbind("mouseenter").mouseenter(function(){
         var buyRightNow ="<div class=\"buyRightNow\"><a href=\"#\">立即购票<\/a><\/div>";
         $(this).append(buyRightNow);
-    }).mouseleave(function(){
+    }).unbind("mouseleave").mouseleave(function(){
         $(this).find(".buyRightNow").remove();
     });
 
