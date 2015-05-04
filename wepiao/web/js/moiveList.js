@@ -22,4 +22,21 @@ $(document).ready(function(){
 
    
 });
+var totalheight = 0; 
+ 
+function loadData()
+{ 
+    totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
+ 
+    if ($(document).height() <= totalheight+100) 
+    { 
+        //加载数据
+        $(".wepiaoContainer .wepiao_main .loadmore").show();
+    } 
+} 
+ 
+$(window).scroll( function() { 
+  
+    loadData();
+}); 
 

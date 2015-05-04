@@ -8,6 +8,17 @@
     <script src="js/jquery-1.11.1.min.js"></script>
 
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-XXXXX-X']);
+          _gaq.push(['_trackPageview']);
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+      })();
+    </script>
 </head>
 <body>
 	<div class="wepiaoContainer minWepiaoContainer">
@@ -781,15 +792,28 @@
                     <div><a href="#"><span>影片</span></a></div>
                     <div><a href="#"><span>影院</span></a></div>
                     <div><a href="#"><span>我的</span></a></div>
+
+                    <div class="menuActive">
+                        <div class="item1"></div>
+                        <div class="item2"></div>
+                    </div>
                 </div>
 
                 <div class="seachCon">
+                   <!--  <span class="searchKind">影片
+                        <img class="searchPointer" src="css/images/index/searchPointer.png">
+                    </span> -->
+
                     <input type="text" value="搜索影片或影院"/>
                     <a href="javascript:void(0);"></a>
+                    <div class="searchPan">
+                        <a href="">影片</a>
+                        <a href="">影院</a>
+                    </div>
                 </div>
 
 
-                <div class="logoOrSign">
+                <div class="logoOrSign" style="display:none;">
                     <!-- <a class="logoOrSign_icon"></a> -->
                     <img src="css/images/index/geren.png" class="logoOrSign_icon" />
                     <a href="javascript:void(0);" class="logoOrSign_login">登录</a>
@@ -797,14 +821,34 @@
                     <a href="javascript:void(0);" class="logoOrSign_sign">注册</a>
                 </div>
 
+                <div class="logoOrSign">
+                    <div class="userPhoto" style="">
+                        <img src="css/images/index/yingpian.jpg">
+                    </div>
+                    <div class="userMsg">
+                        <a href="javascript:void(0);" class="">从此全球震惊了</a>
+                        <a class="user_point"></a>
+                    </div>
+                    <div class="userMsglist">
+                        <a href="#" class="first">我的订单</a>
+                        <a href="#">我的红包</a>
+                        <a href="#">我的预售卷</a>
+                        <a href="#">我的众筹</a>
+                        <a href="#">退出</a>
+                    </div>
+                    
+                </div>
+
             </div>
 		</div>
 		<div class="wepiao_nav">
 			<div class="imgbox">
-                 <div style="background:url(css/images/index/nav_bg.jpg) center no-repeat;display:block;"></div>
-                 <div style="background:url(css/images/sign/sign_bg.gif) center no-repeat;"></div>
-                 <div style="background:url(css/images/index/nav_bg.jpg) center no-repeat;"></div>
-                 <div style="background:url(css/images/index/nav_bg.jpg) center no-repeat;"></div>
+                 <div style="background:url(css/images/index/banner2.jpg) center no-repeat;display:block;">
+                    <img src="css/images/index/dd.jpg" onerror="_gaq.push(['_trackEvent', 'Videos', 'Video Load Time', 'Gone With the Wind']);">
+                 </div>
+                 <div style="background:url(css/images/index/banner1.jpg) center no-repeat;"></div>
+                 <div style="background:url(css/images/index/banner3.jpg) center no-repeat;"></div>
+                 <div style="background:url(css/images/index/banner1.jpg) center no-repeat;"></div>
 				<!-- <ul>
 					<li style="display:block;">
 						<a href="#">
@@ -960,28 +1004,34 @@
                             <div class="main">
                                <div class="regionArea">
                                     <div class="regionItem">
+                                        
                                          <a href="javascript:void(0);" class="regionName allArea active">全部</a>
                                          <div class="cinemaArea" style="display:block;">
-                                            <a href="javascript:void(0);" dateWinId="dateWin1">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
-                                            <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                            <div style="width:100%;height:20px;"></div>
+                                            <div style="width:100%;height:100%;overflow:auto;overflow-y:hidden;">
+                                                    <a href="javascript:void(0);" class="" dateWinId="dateWin1">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);" class="">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);">保利国际影城(首地大峡谷店)</a>
+                                                <a href="javascript:void(0);" class="">保利国际影城(首地大峡谷店)</a>
+                                            </div>
                                             
+                                            
+                                            <div style="width:100%;height:20px;"></div>
 
                                        </div>
                                     </div>
@@ -1752,7 +1802,7 @@
                                                     <div><a href="javascript:void(0);" class="type">国语3D</a></div>
                                                     <div><a href="javascript:void(0);" class="address">6号厅</a></div>
                                                     <div class="priceDiv">
-                                                        <span class="normalPrice">￥43</span>
+                                                        <span class="normalPrice"><font>￥</font>43</span>
                                                     </div>
                                                     <div class="buyBtnConDiv">
                                                         <a href="javascript:void(0);" class="buyBtnCon"></a>
@@ -2045,7 +2095,7 @@
 
                     </div>
                     <div class="buyBtn">
-
+                        选座购票
                     </div>
                 </div>
             </div>
@@ -2071,7 +2121,7 @@
                                 <div class="isntruction">
                                     <span class="name">重返二十岁</span>
                                     <span class="favorite"><font>80%</font>喜欢</span>
-                                    <span class="hostTopic">鹿晗首演"萌孙"</span>
+                                    <span class="hostTopic">鹿晗首演这个混蛋球的家伙亚谜底里斯</span>
                                 </div>
                             </a>
                         </div>
@@ -2351,7 +2401,7 @@
                         <a href="#">
                             <div class="item">
                                 <div>
-                                    <span class="name">矮人传奇最终决战资金在</span>
+                                    <span class="name">矮人传奇最终决战</span>
                                     <span class="hotIcon">全场9.9元</span>
                                 </div>
                                 <span class="date">时间：1月4日 - 2月4日</span>    
@@ -2491,6 +2541,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="moivesortCon gatherDoor">
+                    <a href="http://channel.wepiao.com/index.php?r=/Orderpay/query_order"></a>
+                </div>
 
 
 
@@ -2539,5 +2592,14 @@
             <p>和你一起爱上电影</p>
         </div>
     </div>
+
+    <script type="text/javascript">
+    //alert(4);
+
+        /*(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');*/
+    </script>
 </body>
 </html>

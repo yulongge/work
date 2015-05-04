@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+ html {border:0;}
+ body { height:100%; margin:0;}
+ input::-ms-clear{display:none;}
+ html,body,input,div,a,span,li,ul{font-family:"Hiragino Sans GB",Helvetica,Arial,sans-serif,"微软雅黑";}
+ .logo{width: 205px;height: 242px;margin:0 auto;background: url(../images/logo.png);margin-top: 60px;}
+ .login{width: 340px;height: 100%;margin:0 auto;margin-top:90px;}
+ .login .inputCon{width: 340px;height: 50px;border: 2px solid #aeaeae;border-radius: 10px;margin-top: 10px;}
+ .inputCon input{width: 330px;height: 40px;border:none;margin:4px;font-size: 16px;color: #999999;}
+ .login_btn{margin-top: 10px;position: relative;}
+ .login_btn span{display: inline-block;}
+ .login_btn .checkCon{margin-top: 4px;}
+ .login_btn .checkCon input{width: 18px;height: 18px;border-color:#aeaeae;border:2px solid #aeaeae;line-height: 37px;}
+ .toLogin{width: 120px;height: 37px;border:1px solid #fc5644;border-radius:20px;background: #fc5644;font-size: 14px;text-align: center;line-height: 37px;color: #fff;position: absolute;right: 7px;}
+
+ .line{height: 1px;width: 100%;border-top: 1px solid #e5e5e5;border-bottom: 1px solid #e5e5e5;margin-top: 110px;text-align: center;color: #565656;line-height: 80px;}
+  .line i{display: inline-block;width: 25px;height: 18px;background: url(../images/footerIcon.png);position: relative;top:3px;margin-right: 10px;}

@@ -32,7 +32,7 @@ function imgboxPlay(){
     			isPlay = true;
     			index -- ;
     			if(index == -1){
-    				index = 3;
+    				index = self.length-1;
     			}
     			self.list.eq(pre).fadeOut(5000,"linear",function(){});
                 var info = self.list.eq(index).fadeIn(5000,"linear",function(){
@@ -99,6 +99,36 @@ $(document).ready(function(){
         $(this).addClass("active");
     });
 
+    var timer = 0;
+    $(".wepiaoContainer .header .menu .menuCon a").mouseenter(function(event) {
+        var _this = this;
+       
+
+        clearTimeout(timer);
+        timer = setTimeout(function(){
+            var left = $(_this).parent().position().left;
+            if($(_this).hasClass('active')){
+                $(_this).css("color","#fff")
+            }
+            $(".wepiaoContainer .header .menu .menuCon .menuActive .item2").animate({
+                height: 0},
+                100, function() {
+                        $(".wepiaoContainer .header .menu .menuCon .menuActive").animate({
+                        left: left},200, function() {
+                            $(".wepiaoContainer .header .menu .menuCon .menuActive .item2").animate({
+                                height: 32},100, function() {
+                                    if(!$(_this).hasClass('active')){
+                                            $(".wepiaoContainer .header .menu .menuCon .active").css("color","#2ed2c1");   
+                                    }
+                            });
+                    });
+            });
+        },300);
+        
+        
+    }).mouseleave(function(event) {
+       clearTimeout(timer);
+    });;
     //列表切换
     $(".wepiaoContainer .wepiao_main .wepiao_main_moivelist .movelistCon .movelist_title .tabplay").unbind("click").click(function(e){
         e.stopPropagation();
@@ -159,9 +189,12 @@ $(document).ready(function(){
 
     //影片鼠标经过事件
     $(".wepiao_main .wepiao_main_moivelist:not(.showListCon) .movelistCon:not(.hotCinemaCon) .movelist_items .movelist_item").unbind("mouseenter").mouseenter(function(){
+        
+        if($(this).parents().hasClass('showListCon'))return false;
         var buyRightNow ="<div class=\"buyRightNow\"><a href=\"#\">立即购票<\/a><\/div>";
         $(this).append(buyRightNow);
     }).unbind("mouseleave").mouseleave(function(){
+        if($(this).parents().hasClass('showListCon'))return false;
         $(this).find(".buyRightNow").remove();
     });
 

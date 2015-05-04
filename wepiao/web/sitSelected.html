@@ -8,6 +8,7 @@
     <script src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/moiveList.js"></script>
+    <script type="text/javascript" src="js/order.js"></script>
 </head>
 <body>
 	<div class="wepiaoContainer minWepiaoContainer">
@@ -799,800 +800,278 @@
 
             </div>
 		</div>
-        <div class="wepiao_main wepiao_moiveListCon">
-            <div class="wepiao_main_moivelist">
-                <div class="movelistCon">
-                    <div class="movelist_title">
-                        <span class="tabplay nowPlay active">正在热映</span>
-                        <span class="titleLine">|</span>
-                        <span class="tabplay futurePlay">即将上映</span>
-                        
+        <div class="wepiao_main wepiao_seatSelected">
+            <div class="setProgress">
+                <div class="step step1 active">
+                    <div class="active">
+                        <span class="number"></span>
+                        <span class="icon"></span>
+                        <span class="inst">在线选座</span>
+                    </div>  
+                </div>
+                <div class="step step2">
+                    <div class="">
+                        <span class="number"></span>
+                        <span class="icon"></span>
+                        <span class="inst">提交订单并支付</span>
                     </div>
-                    <div class="movelist_cardOrList">
-                        <div class="cardOrListOp">
-                            <a href="javascript:void(0);" class="showCard card"></a>
-                            <a href="javascript:void(0);" class="active card">海报</a>
-                            
-                            <a href="javascript:void(0);" class="showList list"></a>
-                            <a href="javascript:void(0);" class="list">列表</a>
-                        </div>
-                        
-
-                        
+                </div>
+                <div class="step step3">
+                    <div class="">
+                        <span class="number"></span>
+                        <span class="icon"></span>
+                        <span class="inst">到影院自助取票观影</span>
                     </div>
-                    <div class="movelist_items nowPlayList">
-                        
-                        <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                         <div class="movelist_item">                           
-                                <div class="photo">
-                                    <img src="css/images/index/yingpian2.png"/>
-                                </div>
-                               
-                                <div class="isntruction">
-                                    <div class="instCon">
-                                        <div class="item1">
-                                            <span class="name">重返二十岁</span>
-                                            <span class="hostTopic">鹿晗首演"萌孙"</span>
-                                        </div>
-                                        <div class="item2">
-                                            <span class="">首映：2015.1.23</span>
-                                            <span class="">导演：彼得·杰克逊</span>
-                                             <span class="">
-                                                主演：马丁·弗瑞曼 / 伊恩·麦克莱恩 / 理查德...
-                                             </span>
-                                            <span class="flag">
-                                                <a href="javascript:void(0);">美国</a>
-                                                <a href="javascript:void(0);">144分钟</a>
-                                                <a href="javascript:void(0);">3D/IMAX</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="moiveBuyCon">
-                                        <span class="price">
-                                            ￥<font>45</font>起
-                                        </span>
-                                        <span class="buyBtn"></span>
-                                    </div>
-                                    
-                                </div>
-                           
-                        </div>
-                        
-                        
-                      
-                    </div>
-                    <div class="movelist_items futurePlayList">
-                        
-                      
-                        
-                    </div>
-                    
-                </div> 
-                <div class="loadmore">
-                    <img src="css/images/moivelist/load.png"><span>加载更多</span>
-                </div>      
+                </div>
             </div>
-            <div class="wepiao_main_moivesort">
-                <div class="moivesortCon moive_hostactivity">
+            <div class="seatCon">
+                <div class="seatLeft">
                     <div class="title">
-                        <span class="icon"></span>
-                        <span class="name">热门活动</span>
-                        <span class="hotIcon"><img src="css/images/index/hot.png"></span>
+                        保利国际影城(首地大峡谷店)7号厅
                     </div>
-                    <div class="list">
-                        <a href="#">
-                            <div class="item">
-                                <div>
-                                    <span class="name">每周约会十九期</span>
-                                    <span class="hotIcon">全场9.9元</span>
-                                </div>
-                                <span class="date">时间：1月4日 - 2月4日</span>    
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div>
-                                    <span class="name">矮人传奇最终决战资金在</span>
-                                    <span class="hotIcon">全场9.9元</span>
-                                </div>
-                                <span class="date">时间：1月4日 - 2月4日</span>    
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div>
-                                    <span class="name">每周约会十九期</span>
-                                    <span class="hotIcon">全场9.9元</span>
-                                </div>
-                                <span class="date">时间：1月4日 - 2月4日</span>    
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="item">
-                                <div>
-                                    <span class="name">矮人传奇最终决战</span>
-                                    <span class="hotIcon">全场9.9元</span>
-                                </div>
-                                <span class="date">时间：1月4日 - 2月4日</span>    
-                            </div>
-                        </a>
-                        <!-- <div class="item">
-                            <span class="name">矮人传奇最终决战</span>
-                            <span class="date">时间：1月4日 - 2月4日</span>
-                            <span class="hotIcon">全场9.9元</span>
+                    <div class="desktop"></div>
+                    <div class="seatMsg">
+                        本影厅共有 146 个座位，已售出 54 个，未售出 97 个
+                    </div>
+                    <div class="seatList">
+                        <div class="seatRowNum">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                            <span>11</span>
+                            <span>12</span>
                         </div>
-                        <div class="item">
-                            <span class="name">每周约会十九期</span>
-                            <span class="date">时间：1月4日 - 2月4日</span>
-                            <span class="hotIcon">全场9.9元</span>
+                        <div class="seatRows">
+                            <div class="rowItems">
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                            </div>
+                            <div class="rowItems">
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                            </div>
+                            <div class="rowItems">
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo seatNo"></span>
+                                <span class="seatTo seatNo"></span>
+                                <span class="seatTo seatNo"></span>
+                                <span class="seatTo seatNo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                            </div>
+                            <div class="rowItems">
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo seatOk"></span>
+                                <span class="seatTo seatOk"></span>
+                                <span class="seatTo seatOk"></span>
+                                <span class="seatTo seatOk"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                            </div>
+                            <div class="rowItems">
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                            </div>
+                            <div class="rowItems">
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                            </div>
+                            <div class="rowItems">
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                            </div>
+                            <div class="rowItems">
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo seatNull"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo seatNo"></span>
+                                <span class="seatTo"></span>
+                            </div>
+                            <div class="rowItems">
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                            </div>
+                            <div class="rowItems">
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                            </div>
+                            <div class="rowItems">
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                            </div>
+                            <div class="rowItems">
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                                <span class="seatTo"></span>
+                            </div>
+
+
                         </div>
-                        <div class="item">
-                            <span class="name">矮人传奇最终决战</span>
-                            <span class="date">时间：1月4日 - 2月4日</span>
-                            <span class="hotIcon">全场9.9元</span>
-                        </div> -->
+                    </div>
+                    <div class="seatIconMsg">
+                        <div class="iconCon iconCon1">
+                            <span class="icon icon1"></span>
+                            <span class="msg">可选座位</span>
+                        </div>
+                        <div class="iconCon">
+                            <span class="icon icon2"></span>
+                            <span class="msg">不可选座位</span>
+                        </div>
+
+                        <div class="iconCon">
+                            <span class="icon icon3"></span>
+                            <span class="msg">已选座位</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="moivesortCon movieSortlist moive_hostmovie">
-                    <div class="title">
-                        <span class="icon"></span>
-                        <span class="name">本周票房榜</span>
+                <div class="seatRight">
+                    <div class="filmMsg">
+                        <div class="film"></div>
+                        <div class="msg">
+                            <div class="msgItem msgItem1">
+                                <span class="title">霍比特人3: 五军之战</span>
+                            </div>
+                             <div class="msgItem">
+                                <span class="title">类型:</span>
+                                <span class="words">奇幻/家庭/院线</span>
+                            </div>
+                             <div class="msgItem">
+                                <span class="title">版本:</span>
+                                <span class="words"> 3D / 英语</span>
+                            </div>
+                             <div class="msgItem">
+                                <span class="title">影院:</span>
+                                <span class="words">中影影城北京千禧街店</span>
+                            </div>
+                             <div class="msgItem">
+                                <span class="title">场次:</span>
+                                <span class="words">1月21日    19:30</span>
+                            </div>
+                            
+                        </div>
                     </div>
-                    <div class="list">
-                        <div class="item">
-                            <span class="number inTop">1</span>
-                            <span class="name">重返二十岁</span>
+                    <div class="seats">
+                        <div class="title">座位：</div>
+                        <div class="seatList">
+                            <div class="listcon">
+                                <span class="seatItem">4排6座</span>
+                                <span class="seatItem">4排6座</span>
+                                <span class="seatItem">4排6座</span>
+                                <span class="seatItem">4排6座</span>
+                                <span class="seatItem">4排6座</span>
+                            </div>
+                            <div class="seatCount">
+                                您已选择 <font>4</font> 个座位，再次单击取消。
+                            </div>
                         </div>
-                        <div class="item">
-                            <span class="number inTop">2</span>
-                            <span class="name">往返地中海</span>
-                        </div>
-                        <div class="item">
-                            <span class="number inTop">3</span>
-                            <span class="name">安妮纽约奇缘</span>
-                        </div>
-                        <div class="item">
-                            <span class="number">4</span>
-                            <span class="name">重返二十岁</span>
-                        </div>
-                        <div class="item">
-                            <span class="number">5</span>
-                            <span class="name">往返地中海</span>
-                        </div>
-                        <div class="item">
-                            <span class="number">6</span>
-                            <span class="name">安妮纽约奇缘</span>
-                        </div>
+                    </div>
+
+                    <div class="nextStep">
+                        下一步
+                    </div>
+                    <hr></hr>
+
+                    <div class="inst">
+                        本场座位图及票务信息由中国国际影城北京千禧街点提供；
                     </div>
                 </div>
-
-              <!--   <div class="moivesortCon movieSortlist moive_hostcinema">
-                    <div class="title">
-                        <span class="icon"></span>
-                        <span class="name">热门影院</span>
-                    </div>
-                    <div class="list">
-                        <div class="item">
-                            <span class="number inTop">1</span>
-                            <span class="name">北京大悦城</span>
-                        </div>
-                        <div class="item">
-                            <span class="number inTop">2</span>
-                            <span class="name">百老汇新世纪影城</span>
-                        </div>
-                        <div class="item">
-                            <span class="number inTop">3</span>
-                            <span class="name">百老汇新东安影院</span>
-                        </div>
-                        <div class="item">
-                            <span class="number">4</span>
-                            <span class="name">星会聚星星影城</span>
-                        </div>
-                        <div class="item">
-                            <span class="number">5</span>
-                            <span class="name">金逸北京中关村</span>
-                        </div>
-                        <div class="item">
-                            <span class="number">6</span>
-                            <span class="name">博纳国际影城(朝阳店)</span>
-                        </div>
-                    </div>
-                </div> -->
-
-                <div class="moivesortCon movieSortlist movie_newmovie">
-                    <div class="title">
-                        <span class="icon"></span>
-                        <span class="name">最新影院</span>
-                    </div>
-                    <div class="list">
-                        <div class="item">
-                            <span class="number inTop">1</span>
-                            <span class="name">重返二十岁</span>
-                        </div>
-                        <div class="item">
-                            <span class="number inTop">2</span>
-                            <span class="name">往返地中海</span>
-                        </div>
-                        <div class="item">
-                            <span class="number inTop">3</span>
-                            <span class="name">安妮纽约奇缘</span>
-                        </div>
-                        <div class="item">
-                            <span class="number">4</span>
-                            <span class="name">重返二十岁</span>
-                        </div>
-                        <div class="item">
-                            <span class="number">5</span>
-                            <span class="name">往返地中海</span>
-                        </div>
-                        <div class="item">
-                            <span class="number">6</span>
-                            <span class="name">安妮纽约奇缘</span>
-                        </div>
-                    </div>
-                </div>
-
-                
-
             </div>
         </div>
         <div class="footer">
