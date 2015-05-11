@@ -32,7 +32,7 @@
             this.indexs = [];
             this.length = this.list.length;
             //图片显示时间
-            this.timer = 3000;
+            this.timer = 10000;
             this.showTitle = $(".title");
 
             var index = 0, self = this, pre = 0, handid, isPlay = false, isPagerClick = false;
@@ -57,19 +57,24 @@
                     index = 0;
                 }
                 //先淡出，在回调函数中执行下一张淡入
-                self.list.eq(pre).fadeOut(300, "linear", function () {
-                    var info = self.list.eq(index).fadeIn(500, "linear", function () {
-                        isPlay = false;
-                        if (isPagerClick) { handid = setInterval(self.Play, self.timer); isPagerClick = false; }
-                    }).attr("title");
-                    //显示标题
-                    self.showTitle.text(info);
+                self.list.eq(pre).fadeOut(5000, "linear", function () {
+                    
                     //图片序号背景更换
                     self.indexs[index].css("background-color", "#FF70Ad");
                     self.indexs[pre].css("background-color", "#6f4f67");
 
                     pre = index;
                 });
+
+                var info = self.list.eq(index).fadeIn(5000, "linear", function () {
+                        isPlay = false;
+                        if (isPagerClick) { 
+                            handid = setInterval(self.Play, self.timer); 
+                            isPagerClick = false;
+                        }
+                    }).attr("title");
+                    //显示标题
+                    self.showTitle.text(info);
             };
             //图片序号点击
             this.PagerClick = function () {
@@ -96,13 +101,13 @@
 	        <!--图片列表，除第一张显示外，其余隐藏-->
 	        <ul>
 	            <li style="display: block;" title="the first"><a href="#">
-	                <img src="css/images/imageBox/box1.jpg" /></a></li>
+	                <img src="css/images/index/banner2.jpg" /></a></li>
 	            <li title="the second"><a href="#">
-	                <img src="css/images/imageBox/box2.jpg" /></a></li>
+	                <img src="css/images/index/banner1.jpg" /></a></li>
 	            <li title="the third"><a href="#">
-	                <img src="css/images/imageBox/box3.jpg" /></a></li>
+	                <img src="css/images/index/banner3.jpg" /></a></li>
 	            <li title="the forth"><a href="#">
-	                <img src="css/images/imageBox/box4.jpg" /></a></li>
+	                <img src="css/images/index/banner1.jpg" /></a></li>
 	        </ul>
 	        <div class="title_bg common"><!--图片标题背景-->
 	        </div>

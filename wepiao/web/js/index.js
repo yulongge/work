@@ -1,11 +1,11 @@
-function imgboxPlay(){
+/*function imgboxPlay(){
     		//图片集合
     		this.list = $(".imgbox").children();
     		this.indexs = [];
     		this.length = this.list.length;
     		//图片显示时间
     		this.timer = 10000;
-    		var index = 0 ,self = this,pre = 0,handId,isPlay = false,isBtnClick = false;
+    		var index = 0 ,self = this,pre = 0,handId,isPlay = false,isBtnClick = false,isPagerClick = false;
 
     		//图片轮播
     		this.Play = function(){
@@ -15,17 +15,22 @@ function imgboxPlay(){
     				index = 0;
     			}
     			//alert(index+"===="+pre+"====="+index);
-    			self.list.eq(pre).fadeOut(5000,"linear",function(){});
-                var info = self.list.eq(index).fadeIn(5000,"linear",function(){
+                //alert(index);
+    			self.list.eq(pre).fadeOut(3000,"linear",function(){
+                    $(".pagerCon .pager").removeClass('active')
+                    $(".pagerCon .pager").eq(index).addClass('active');
+                });
+                self.list.eq(index).fadeIn(3000,"linear",function(){
                         isPlay = false;
                         if(isBtnClick){
                             handId = setInterval(self.Play,self.timer);
                             isBtnClick = false;
                         }
-
+                       
                 });
 
                 pre = index;
+               
                 
     		}
     		this.rPlay = function(){
@@ -34,15 +39,21 @@ function imgboxPlay(){
     			if(index == -1){
     				index = self.length-1;
     			}
-    			self.list.eq(pre).fadeOut(5000,"linear",function(){});
+    			self.list.eq(pre).fadeOut(5000,"linear",function(){
+                     $(".pagerCon .pager").removeClass('active')
+                     $(".pagerCon .pager").eq(index).addClass('active');
+                });
                 var info = self.list.eq(index).fadeIn(5000,"linear",function(){
                         isPlay = false;
                         if(isBtnClick){
                             handId = setInterval(self.Play,self.timer);
                             isBtnClick = false;
                         }
+                        
                 });
                 pre = index;
+                $(".pagerCon .pager").removeClass('active')
+                $(".pagerCon .pager").eq(index).addClass('active');
     		}
     		//左右点击切换
     		this.BtnClick = function(){
@@ -62,27 +73,136 @@ function imgboxPlay(){
     			});
     			
     		}
+            //图片序号点击
+            this.PagerClick = function () {
+                if (isPlay) { return; }
+                isPagerClick = true;
+                clearInterval(handId);
+                var oPager = $(this), i = parseInt(oPager.index());
+                if (i != pre) {
+                    index = i - 1; 
+                    //alert(index);
+                    self.Play();
+                }
+            };
 
     		this.Start = function(){
+                
     			handId = setInterval(self.Play,self.timer);
     			this.BtnClick();
+                var o = $(".pagerCon .pager"), _i;
+
+                for (var i = o.length - 1, n = 0; i >= 0; i--, n++) {
+                    //this.indexs[n] = o.eq(i).click(self.PagerClick);
+                    o.eq(i).unbind("click").click(self.PagerClick);
+                }
     		}
     		this.Stop = function(){
     			clearInterval(handId);
     		}
 
 
-}
+}*/
+function imgboxPlay() {
+            this.list = $(".imgbox").children();
+            this.indexs = [];
+            this.length = this.list.length;
+            //图片显示时间
+            this.timer = 10000;
+            this.showTitle = $(".title");
+
+            var index = 0, self = this, pre = 0, handid, isPlay = false, isPagerClick = false;
+
+            this.Start = function () {
+                this.Init();
+                //计时器，用于定时轮播图片
+                handid = setInterval(self.Play, this.timer);
+                this.BtnClick();
+            };
+            //初始化
+            this.Init = function () {
+                var o = $(".pagerCon .pager"), _i;
+
+                for (var i = o.length - 1, n = 0; i >= 0; i--, n++) {
+                    this.indexs[n] = o.eq(i).unbind("click").click(self.PagerClick);
+                }
+            };
+            this.Play = function () {
+                isPlay = true;
+                index++;
+                if (index == self.length) {
+                    index = 0;
+                }
+                //先淡出，在回调函数中执行下一张淡入
+                self.list.eq(pre).fadeOut(5000, "linear", function () {});
+
+                var info = self.list.eq(index).fadeIn(5000, "linear", function () {
+                        isPlay = false;
+                        if (isPagerClick) { 
+                            handid = setInterval(self.Play, self.timer); 
+                            isPagerClick = false;
+                        }
+                    });
+                 //图片序号背景更换
+                 $(".pagerCon .pager").removeClass('active')
+                 $(".pagerCon .pager").eq(index).addClass('active');
+
+                  pre = index;
+                   
+            };
+            //图片序号点击
+            this.PagerClick = function (tempIndex) {
+                if (isPlay) { return; }
+                isPagerClick = true;
+
+                clearInterval(handid);
+
+                var oPager = $(this);
+                var i = parseInt(oPager.index());
+                if(typeof tempIndex == "object"){
+                    i = parseInt(oPager.index());
+                }else{
+                    i=tempIndex;
+                }
+
+
+                if (i != pre) {
+                    index = i - 1;
+                    self.Play();
+                }
+            };
+            //左右点击切换
+            this.BtnClick = function(){
+                var btns = $(".img_btn");
+                var o = $(".pagerCon .pager");
+                
+                
+                btns.each(function(i,v){
+                    $(v).click(function(){                       
+                        if($(v).hasClass("img_left_btn")){
+                           
+                            var tempIndex = $(".pagerCon .active").index();
+                            self.PagerClick(tempIndex-1);
+                        }
+                        if($(v).hasClass("img_right_btn")){
+                            var tempIndex = $(".pagerCon .active").index();
+                            self.PagerClick(tempIndex+1);
+                        }
+                    });
+                });
+                
+            }
+        };
 $(document).ready(function(){
     //启动图片滚动
     var imgboxPlayer = new imgboxPlay();
     imgboxPlayer.Start();
 	//(new imgboxPlay()).Start();
-    $(".wepiaoContainer .wepiao_nav .imgbox").mouseenter(function(){
+   /* $(".wepiaoContainer .wepiao_nav .imgbox").mouseenter(function(){
         imgboxPlayer.Stop();
     }).mouseleave(function(){
         imgboxPlayer.Start();
-    });
+    });*/
 
     //获取屏幕分辨率
     var screenWidth = window.screen.width;
@@ -350,4 +470,138 @@ $(document).ready(function(){
         }
     });
 });
+
+/*影院详情*/
+$(function(){
+    $(".cinema_main .detail_ins .moreDetail").unbind("click").click(function(){//更多详情收缩
+        var shs= $(".cinema_main .cinemalShS");
+        if(shs.is(":visible")){
+            shs.slideUp(500);
+            $(this).find("span").eq(0).text("更多详情");
+            $(this).find(".icon").removeClass('iconS');
+        }else{
+            shs.slideDown(500);
+            $(this).find("span").eq(0).text("收起");
+            $(this).find(".icon").addClass('iconS');
+        }
+    });
+
+    var cinemaItemCon = $(".cinema_main .detail_ins .filmlist .listBigCon");
+    var itemWidth = 300;
+    var marginWidth = 20;
+    var perWidth = itemWidth + marginWidth;
+    var length = cinemaItemCon.find(".item").length;
+    var speed = 300;
+    $(".cinema_main .filmlist .opBtn").unbind("click").click(function(e){//更多详情的图片轮播
+        e.stopPropagation();
+        if($(this).hasClass("leftBtn")){
+            if(cinemaItemCon.scrollLeft()>=0){
+                var left = cinemaItemCon.scrollLeft() - perWidth;
+                cinemaItemCon.animate({scrollLeft:left}, speed)
+            }
+        }else{
+            if(cinemaItemCon.scrollLeft()<(perWidth*(length-3))){
+                var left = cinemaItemCon.scrollLeft() + perWidth;
+                cinemaItemCon.animate({scrollLeft:left}, speed)
+            }
+        }  
+    });
+
+
+    //电影选择轮播
+
+    var filmItemCon = $(".cinema_main >.filmlist .listBigCon");
+    var filmitemWidth = 208;
+    var filmmargin = 20;
+    var filmPerW = filmitemWidth + filmmargin;
+    var filmLen = filmItemCon.find(".item").length;
+    var filmSpeed = 300;
+    $(".cinema_main >.filmlist .opBtn").unbind("click").click(function(e){//更多详情的图片轮播
+        e.stopPropagation();
+        if($(this).hasClass("leftBtn")){
+            if(filmItemCon.scrollLeft()>=0){
+                var left = filmItemCon.scrollLeft() - filmPerW;
+                filmItemCon.animate({scrollLeft:left}, filmSpeed)
+            }
+        }else{
+            if(filmItemCon.scrollLeft()<(filmPerW*(filmLen-4))){
+                var left = filmItemCon.scrollLeft() + filmPerW;
+                filmItemCon.animate({scrollLeft:left}, filmSpeed)
+            }
+        }  
+    });
+
+    $(".cinema_main >.filmlist .item").eq(0).find('.itemMsg').show();
+    $(".cinema_main >.filmlist .item").unbind('click').click(function(){//电影被点击
+        var _this = this;
+        $(_this).siblings().find("img").removeClass('active');
+        $(_this).siblings().find(".pointIcon").remove();
+        $(_this).siblings().find(".itemMsg").hide();
+
+        $(_this).find("img").addClass('active');
+
+        var arrowTep="<span class=\"pointIcon\"><\/span>";
+        $(_this).find(".pointIcon").remove();
+        $(_this).find("img").after(arrowTep);
+        $(_this).find(".itemMsg").show();
+    });
+
+});
+
+/*影片详情*/
+
+$(function(){
+    
+    //剧照轮播
+
+    var jzCon = $(".filmAdvance .filmlist .listBigCon");
+    var jzWidth = 240;
+    var jzmargin = 6;
+    var jzPerW = jzWidth + jzmargin;
+    var jzLen = jzCon.find(".item").length;
+    var jzSpeed = 300;
+    $(".filmAdvance .filmlist .opBtn").unbind("click").click(function(e){//更多详情的图片轮播
+        e.stopPropagation();
+        if($(this).hasClass("leftBtn")){
+            if(jzCon.scrollLeft()>=0){
+                var left = jzCon.scrollLeft() - jzPerW;
+                jzCon.animate({scrollLeft:left}, jzSpeed)
+            }
+        }else{
+            if(jzCon.scrollLeft()<(jzPerW*(jzLen-4))){
+                var left = jzCon.scrollLeft() + jzPerW;
+                jzCon.animate({scrollLeft:left}, jzSpeed)
+            }
+        }  
+    });
+
+    //剧照点击事件
+
+    $(".filmAdvance .filmlist .listBigCon .item").unbind('click').click(function(){
+        var url = $(this).find("img").attr("src");
+        $(".filmAdvance .main .filmPlay").css("background","url("+url+") center no-repeat");
+    });
+
+    $(".film_main .filmSeat .fs_cinema .moreCinema").unbind('click').click(function(){//更多影院
+        var con = $(".film_main .filmSeat .fs_cinema .cont");
+        if(con.height()==60){
+            con.animate({height:"100%"}, 500)
+        }else{
+            con.animate({height:60}, 500)
+        }
+    });
+
+    $(".film_main .filmComment .commentBtn").unbind('click').click(function(){
+        $(".commentWin").show();
+        $(".bg_shade").show();
+    });
+
+    $(".commentWin .com_foot .inputCon .comBtn").click(function(){
+         $(".commentWin").hide();
+        $(".bg_shade").hide();
+    });
+
+});
+
+
 
